@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        body{
+            margin: 0px;
+            padding: 0px;
+            font-family: "Kanit", serif;
+            font-weight: 300;
+            font-style: normal;
+            background-color: #31304D;
+        }
+        .container{
+            width: 100vw;
+            height: 100vh;
+     
+            display: flex;
+            justify-content: center;
+        }
+        .content{
+            width: 80%;
+            height: 100%;
+          
+            display: flex;
+            flex-direction: column;
+            
+            
+        }
+        .img-bg{
+            width: 70%;
+            height: auto;
+        }
+        .image{
+            width: 100%;
+            height: 50%;
+            display: flex;
+            justify-content: center;
+
+        }
+        .detail{
+            width: 100%;
+            height: auto;
+
+            display: flex;
+            justify-content: center;
+        }
+        .content_1{
+            width: 70%;
+            height: 100%;
+
+            display: flex;
+            flex-direction: row;
+        }
+        .logo{
+            width: 25%;
+            position: relative;
+            margin-left: 4rem;
+            bottom: 200px;
+        }
+        .vidoe{
+          position: absolute;
+          right:23%;
+          top: 25%;
+        }
+        .tap{
+            font-size: 40px;
+            margin-left: 10px;
+            margin-top: 5px;
+            color: white;
+            background: none;
+            border: none;
+        }
+         :hover{
+            color: yellow;
+        }
+        .name button :hover{
+            color: yellow;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content" id="con">
+            <!-- <div class="image">
+                <img src="https://m.media-amazon.com/images/M/MV5BMWY0MWE3MmUtMmQ0ZS00Yzc2LTk5ZDEtMzYwYmE3ODA4ZWI5XkEyXkFqcGc@._V1_FMjpg_UX1800_.jpg" alt="" class="img-bg">
+            </div>
+            <div class="detail">
+                <div class="content_1">
+                    <img src="https://i.pinimg.com/736x/1e/3c/fb/1e3cfbc50ed3306e22c0802a866826da.jpg" alt="" class="logo">
+                    <div class="text" style="display: flex; flex-direction: column; margin-left: 20px">
+                        <div  style="display: flex; flex-direction: row;" class="name">
+                            <h1 style="color: white;">Arcane</h1>
+                            <button class="tap">></button>
+                        </div>
+
+                        <div class="text1" style="display: flex; flex-direction: row;" >
+                                                   
+                            <h4 style="color: yellow; position: relative; bottom: 48px;">MIDd 9.5/10</h4>
+                            <p  style="color: white; position: relative; bottom: 45px; margin-left: 3px; margin-right: 3px;">|</p>
+                            <h4 style="color: purple; position: relative; bottom: 48px;">* Rate</h4>
+                        </div>
+                        <p style="color: white; position: relative; bottom: 48px;">You don’t need to be an anime fan or a gamer to appreciate the magic of Netflix's mega-hit “Arcane.” Based on the online multiplayer game “League of Legends,” the show is surprisingly accessible, with a gorgeous mix of 2D and 3D animation, compelling characters, and a rich narrative that tackles big ideas while staying grounded in human relationships. The first season won over critics and fans alike, scoring a 9.0 rating on IMDb and quietly winning a Primetime Emmy for Outstanding Animated Program. Season 2 finds conflict simmering between the “haves” of utopian city Piltover and the “have-nots” of the underground Zaun, but also between estranged sisters Jinx (Ella Purnell) and Vi (Hailee Steinfeld). Although the series concludes in this final season, Linke has teased there are more “League” stories to tell. </p>
+                    </div>
+                </div>
+            </div>
+            <iframe width="350" height="250" src="https://www.youtube.com/embed/Pj-2KzHjjD0?si=9MmmoftHleZqKo4J" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="vidoe"></iframe> -->
+        </div>
+    </div>
+    <script src="varible.js"> </script>
+    <script>
+        
+        const urlParams = new URLSearchParams(window.location.search);
+        const movieKey = urlParams.get("movie");
+        const content = document.getElementById("con");
+        if (movieKey && movie[movieKey]) {
+            const { name, midb, image, detail,vidoe,image_bg } = movie[movieKey];
+            content.innerHTML = `
+                <div class="image">
+                <img src="${image_bg}" alt="" class="img-bg">
+                </div>
+                <div class="detail">
+                    <div class="content_1">
+                        <img src="${image}" alt="" class="logo">
+                        <div class="text" style="display: flex; flex-direction: column; margin-left: 20px">
+                            <div  style="display: flex; flex-direction: row;" class="name">
+                                <h1 style="color: white;">${name}</h1>
+                                <button class="tap">></button>
+                            </div>
+                            <div class="text1" style="display: flex; flex-direction: row;" >
+                                <h4 style="color: yellow; position: relative; bottom: 48px;">MIDd ${midb}/10</h4>
+                                <p  style="color: white; position: relative; bottom: 45px; margin-left: 3px; margin-right: 3px;">|</p>
+                                <h4 style="color: purple; position: relative; bottom: 48px;">* Rate</h4>
+                            </div>
+                            <p style="color: white; position: relative; bottom: 48px;">${detail}</p>
+                        </div>
+                    </div>
+                </div>
+                <iframe width="350" height="250" src="${vidoe}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="vidoe"></iframe>
+            `
+        } else {
+            document.body.innerHTML = `<h1>Movie not found</h1>`;
+        }
+    </script>
+</body>
+</html>
