@@ -29,6 +29,27 @@ const movie = {
         "image_bg":"https://www.cnet.com/a/img/resize/5bccae86b3ab1fa5a1be6a277209818b9c0b1d31/hub/2024/09/18/60900259-ccd5-484f-b77c-3c6a6af21808/en-us-squids2-teaser-thedrag-vertical-27x40-srgb-pre.jpg?auto=webp&fit=crop&height=675&width=1200",
         "vidoe":"https://www.youtube.com/embed/JqR4mVk4JgQ?si=E0EHD1vdhTl62zUw",
         "detail":"It’s been three years since the entire world cheered on Gi-hun (Lee Jung-jae) as he escaped a lethal game show and vowed to track down those responsible. Now, the unlikely hero returns to make good on his promise in Season 2, which sees Player 456 head back into the game with a whole new group of contestants ready to set their humanity aside for a chance at the grand prize. Prepare yourself for more tense conflicts, shocking reveals, and the return of Young-hee the murderous “Red Light, Green Light” doll. The new season drops on December 26, and we can’t think of a better way to close out the holidays than with this grim exploration of greed, capitalism, and human perseverance."
+    },"movie5":{
+        "name":"Black Doves",
+        "midb":"Dec. 5 on Netflix",
+        "image":"https://m.media-amazon.com/images/M/MV5BMDQyNzE2NmYtMzExMy00NTBjLWE4ODItNjI1OTNkZWVjNDUyXkEyXkFqcGc@._V1_QL75_UX280_CR0,0,280,414_.jpg ",
+        "image_bg":"https://m.media-amazon.com/images/M/MV5BOTdlZDBkN2YtNzg2Zi00ODk2LWI3OGItOGViZmY1MmU0NjY0XkEyXkFqcGc@._V1_FMjpg_UX1800_.jpg",
+        "vidoe":"https://www.youtube.com/embed/1R0d2jW7a-I?si=vd-52zM1ntquHYWW",
+        "detail":"Keira Knightley and Ben Whishaw team up for a London-set spy series from the creator of “Girl/Haji” that reads like it could live in the same universe as “The Diplomat.” We’re talking secret affairs, assassinations, and a nasty global conspiracy so daunting, Netflix renewed the series for Season 2 already."
+    },"movie6":{
+        "name":"Secret Level",
+        "midb":" Dec. 10 on Prime Video",
+        "image":"https://m.media-amazon.com/images/M/MV5BNTgyYjdkZWQtYTBlZi00NzZkLTkyZWUtMzM5M2JmZDA0MDkyXkEyXkFqcGc@._V1_QL75_UY414_CR8,0,280,414_.jpg",
+        "image_bg":"https://m.media-amazon.com/images/M/MV5BNTVkOGYyZWYtNzczYS00MzNjLTkzZTQtMWE5YzY5MWI0ZjZmXkEyXkFqcGc@._V1_FMjpg_UX1200_.jpg",
+        "vidoe":"https://www.youtube.com/embed/YMZffM5bKmg?si=bRHW2yI79qTdRJqk",
+        "detail":"Blinky and the other Pac-Man ghosts will become carnivorous monsters in this animated anthology series comprised of 15 episodes, each an original story set within the world of a legendary video game. Mega Man, D&D, and the iconic miniature game Warhammer 40,000 will have dedicated episodes too. Picture what went went into securing rights from multiple video game publishers and making sure every studio is happy with the results. It’s an ambitious next step for Prime Video after “Fallout” and a chance for creator/producer Tim Miller to rebound after Borderlands."
+    },"movie7":{
+        "name":"The Lord of the Rings: The War of the Rohirrim",
+        "midb":7.5,
+        "image":"https://m.media-amazon.com/images/M/MV5BMmU1YzZkMjAtYjNjOC00ZDFhLWE3Y2QtZTM2ZTdkZWM1OGM3XkEyXkFqcGc@._V1_QL75_UX280_CR0,0,280,414_.jpg",
+        "image_bg":"https://m.media-amazon.com/images/M/MV5BY2Y4OTY0MjctZWFhZi00ODI2LWExMmQtZWViNjYzZGRkYjA3XkEyXkFqcGc@._V1_FMjpg_UX1200_.jpg",
+        "vidoe":"https://www.youtube.com/embed/u4WpsGgNsME?si=ZkZb6TvB9dLyS_zr",
+        "detail":"A footnote of a story told in J. R. R. Tolkein's novel gets forged into an animated movie from anime god Kenji Kamiyama, employing a visual style that will pay tribute to Peter Jackson's depiction of Middle-earth. The story reveals the history of the kingdom of Rohan and its then king, Helm Hammerhand, in his war with the Dunlendings, the wild men living on the fringes of the kingdom. If you're only a bit familiar with the lore, yes, Helm Hammerhand has a lot to do with Helm's Deep. And he was seen in statue form in The Two Towers. Since we're living in Tolkein Time, Gandalf, Galadriel, and others are alive, but they are not involved in this particular tale. However, we felt actual real emotions learning that Miranda Otto's Eowyn will narrate the story."
     }
     
 }

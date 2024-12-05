@@ -21,6 +21,30 @@
             background-color: rgb(73, 0, 133);
             
         }
+        /* สำหรับ Scrollbar ทั้งหมด */
+        ::-webkit-scrollbar {
+            width: 12px; /* กำหนดความกว้าง */
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f4f4f4; /* สีพื้นหลังของแทร็ก */
+            border-radius: 10px; /* มุมโค้ง */
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #ff7eb3, #ff758c); /* สีของ Scrollbar */
+            border-radius: 10px; /* มุมโค้ง */
+            border: 2px solid #f4f4f4; /* เพิ่มขอบ */
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(45deg, #ff758c, #ff5e62); /* เปลี่ยนสีเมื่อ hover */
+        }
+
+        ::-webkit-scrollbar-thumb:active {
+            background: linear-gradient(45deg, #ff5e62, #ff3a52); /* เปลี่ยนสีเมื่อคลิก */
+        }
+
         .container{
             width: 100vw;
             height: 100vh;
@@ -41,8 +65,9 @@
             align-items: center;
         }
         .movie{
-            width: 400px;
+            width: 250px;
             height: 85%;
+            margin-right: 20px;
             
         }
         .style{
@@ -60,32 +85,51 @@
         }
         .image img{
             transition: all 0.5s ease-in-out;
-            width: 80%;
-            height: 450px;
+            width: 100%;
+            height: 350px;
             margin-top: 10px;
         }
         .contentmovie{
-            width: 90%;
-            height: 100px;
+            background-color: #151515;
+            width: 100%;
+            height: 200px;
+            border-radius: 5px;
         }
         .detail{
+            
             display: flex;
             justify-content: center;
-            margin-top: 8px;
+            margin-top: 4px;
         }
         .movie_all{
             display: flex;
             overflow: auto;
-            scrollbar-width: none; 
-            -ms-overflow-style: none;
             transition: 0.5s;
            
         }
-        .movie:hover img{
+        .movie:hover{
             transition: all 0.5s ease-in-out;
-            width: 70%;
-            height: 400px;
+            
         }
+        .pre{
+            font-size: 20px;
+        }
+        .bt1{
+            height: 40px;
+            border-radius: 25px;
+            border: none;
+            color: #ED5AB3;
+            background-color: #535353;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        .bt2{
+            font-size: 14px;
+            border: none;
+            color: white; 
+            background: none;
+        }
+      
         
     </style>
 </head>
@@ -103,10 +147,16 @@
         </div>
     </div>
     <script src="varible.js"> </script>
+    <script src="https://unpkg.com/scrollreveal"></script>
     <script>
         
         const movie_all = document.getElementById("_all")
         let count =0;
+        const scrollreveal = {
+            distance:"50px",
+            origin:"bottom",
+            duration:1000
+        }
 
         for(let key in movie){
             count++;
@@ -114,15 +164,23 @@
             const {name,midb,image} = movie[key]
             const container = document.createElement('div')
             container.innerHTML =`
-                    <div class="movie">
+                    <div  class="movie" id="${key}">
                         <div class="image"> 
                             <img src="${image}" alt="" class="img">
                         </div>
                         <div class="detail">
                             <div class="contentmovie">
                                 <div class="txt" style="margin-left: 10px;">
-                                    <h2 style="color: white;">${count}.${name}</h2>
-                                    <p style="color: yellow; position: relative; bottom: 20px;">MIDb ${midb}/10</p>
+                                    <p style="color: yellow; font-size: 10px;">MIDb ${midb}/10</p>
+                                    <h4 style="color: white; position: relative; bottom: 20px;">${count}.${name}</h4>
+                                    <div style="display: flex; align-items: center; justify-content: center;">
+                                        <div style="display: flex; flex-direction: column; width: 70%;">
+                                            <button class="bt1">Watch list</button>
+                                            <button class="bt2">Trailer</button>
+                                        </div>
+                                    </div>
+                                    
+                                    
                                 </div>
                             </div>
                         </div>
@@ -138,16 +196,50 @@
        
     </script>
     
-    <script src="https://unpkg.com/scrollreveal"></script>
+ 
     <script>
-        const scrollreveal = {
-            distance:"50px",
-            origin:"bottom",
-            duration:1000
-        }
-        ScrollReveal().reveal(".movie",{
+        ScrollReveal().reveal(".style",{
+          ...scrollreveal,
+        })
+        ScrollReveal().reveal(".pre",{
           ...scrollreveal,
             origin:"right",
+            delay:250
+        })
+        ScrollReveal().reveal("#movie1",{
+                ...scrollreveal,
+                origin:"right",
+                delay:400
+        })
+        ScrollReveal().reveal("#movie2",{
+                ...scrollreveal,
+                origin:"right",
+                delay:500
+        })
+        ScrollReveal().reveal("#movie3",{
+                ...scrollreveal,
+                origin:"right",
+                delay:600
+        })
+        ScrollReveal().reveal("#movie4",{
+                ...scrollreveal,
+                origin:"right",
+                delay:700
+        })
+        ScrollReveal().reveal("#movie5",{
+                ...scrollreveal,
+                origin:"right",
+                delay:800
+        })
+        ScrollReveal().reveal("#movie6",{
+                ...scrollreveal,
+                origin:"right",
+                delay:900
+        })
+        ScrollReveal().reveal("#movie7",{
+                ...scrollreveal,
+                origin:"right",
+                delay:1000
         })
  
     </script>
