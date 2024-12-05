@@ -12,7 +12,14 @@
             font-family: "Kanit", serif;
             font-weight: 300;
             font-style: normal;
-            background-color: #31304D;
+            overflow: hidden;
+            background-blend-mode: overlay, screen, screen, screen, screen, screen, screen, screen, normal;
+            background-image: radial-gradient(at 100vw 0px, rgb(73, 0, 133) 0%, rgb(32, 0, 51) 100%), radial-gradient(farthest-side at 100vw 0px, rgb(189, 17, 97) 0%, rgba(73, 0, 170, 0.55) 70%, rgba(73, 0, 170, 0) 100%), url("https://m.media-amazon.com/images/G/01/IMDb/design/prototypes/vlp/dot-pattern-left._CB1198675309_.png"), url("https://m.media-amazon.com/images/G/01/IMDb/design/prototypes/vlp/dot-pattern-right._CB1198675309_.png"), url("https://m.media-amazon.com/images/G/01/IMDb/design/prototypes/vlp/dot-pattern-left._CB1198675309_.png"), url("https://m.media-amazon.com/images/G/01/IMDb/design/prototypes/vlp/dot-pattern-right._CB1198675309_.png"), url("https://m.media-amazon.com/images/G/01/IMDb/design/prototypes/vlp/dot-pattern-left._CB1198675309_.png"), url("https://m.media-amazon.com/images/G/01/IMDb/design/prototypes/vlp/dot-pattern-right._CB1198675309_.png"), url("https://m.media-amazon.com/images/G/01/IMDb/design/prototypes/vlp/smoke-bg_v2.jpg");
+            background-position: right top, right top, left 200px, right min(100vmin, 20%), left min(500vmin, 50%), right min(700vmin, 60%), left min(80vmax, 90%), right min(90vmax, 95%), right top;
+            background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, repeat-y;
+            background-size: max(800px, 100%) 100%, 100% max(120vw, 1200px), max(50%, 250px), max(50%, 250px), max(50%, 250px), max(50%, 250px), max(50%, 250px), max(50%, 250px), auto;
+            background-color: rgb(73, 0, 133);
+            
         }
         .container{
             width: 100vw;
@@ -36,6 +43,7 @@
         .movie{
             width: 400px;
             height: 85%;
+            
         }
         .style{
             background-color: yellow;
@@ -51,14 +59,14 @@
             
         }
         .image img{
-            width: 90%;
-            height: 550px;
+            transition: all 0.5s ease-in-out;
+            width: 80%;
+            height: 450px;
             margin-top: 10px;
         }
         .contentmovie{
             width: 90%;
             height: 100px;
-            background-color: #424242;
         }
         .detail{
             display: flex;
@@ -68,7 +76,17 @@
         .movie_all{
             display: flex;
             overflow: auto;
+            scrollbar-width: none; 
+            -ms-overflow-style: none;
+            transition: 0.5s;
+           
         }
+        .movie:hover img{
+            transition: all 0.5s ease-in-out;
+            width: 70%;
+            height: 400px;
+        }
+        
     </style>
 </head>
 <body>
@@ -99,13 +117,12 @@
                     <div class="movie">
                         <div class="image"> 
                             <img src="${image}" alt="" class="img">
-                            
                         </div>
                         <div class="detail">
                             <div class="contentmovie">
                                 <div class="txt" style="margin-left: 10px;">
                                     <h2 style="color: white;">${count}.${name}</h2>
-                                    <p style="color: yellow; position: relative; bottom: 20px;">MIDb ${midb}</p>
+                                    <p style="color: yellow; position: relative; bottom: 20px;">MIDb ${midb}/10</p>
                                 </div>
                             </div>
                         </div>
@@ -120,5 +137,20 @@
 
        
     </script>
+    
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+        const scrollreveal = {
+            distance:"50px",
+            origin:"bottom",
+            duration:1000
+        }
+        ScrollReveal().reveal(".movie",{
+          ...scrollreveal,
+            origin:"right",
+        })
+ 
+    </script>
+    
 </body>
 </html>
