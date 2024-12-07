@@ -19,21 +19,33 @@
             background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, repeat-y;
             background-size: max(800px, 100%) 100%, 100% max(120vw, 1200px), max(50%, 250px), max(50%, 250px), max(50%, 250px), max(50%, 250px), max(50%, 250px), max(50%, 250px), auto;
             background-color: rgb(73, 0, 133);
+
         }
         .container{
-            width: 100vw;
-            height: 100vh;
-            overflow: hidden;
+            width: 100%;
+            height: 2000px;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+          
         }
         .content{
             width: 80%;
-            height: 100%;
+            height: 50%;
           
             display: flex;
             flex-direction: column;
             
+            
+        }
+        .content_creator{
+            width: 60%;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            position: relative;
+            left: 200px;
+            bottom: 120px;
             
         }
         .img-bg{
@@ -42,7 +54,7 @@
         }
         .image{
             width: 100%;
-            height: 60%;
+            height: auto;
             display: flex;
             justify-content: center;
 
@@ -86,37 +98,40 @@
         .name button :hover{
             color: yellow;
         }
-        
+        .creator_{
+            height: 100%;
+            width: 70%;
+            display: flex;
+            flex-direction: row;
+        }
+        .image_creator{
+            width: 65%;
+            border-radius: 50%;
+        }
+        .name_creator{
+            color: white;
+            font-size: 15px;
+        }
+        .person{
+            width: 180px;
+            height: 100%;
+            text-align: center;
+            
+        }
         
     </style>
 </head>
 <body>
     <div class="container">
         <div class="content" id="con">
-            <!-- <div class="image">
-                <img src="https://m.media-amazon.com/images/M/MV5BMWY0MWE3MmUtMmQ0ZS00Yzc2LTk5ZDEtMzYwYmE3ODA4ZWI5XkEyXkFqcGc@._V1_FMjpg_UX1800_.jpg" alt="" class="img-bg">
-            </div>
-            <div class="detail">
-                <div class="content_1">
-                    <img src="https://i.pinimg.com/736x/1e/3c/fb/1e3cfbc50ed3306e22c0802a866826da.jpg" alt="" class="logo">
-                    <div class="text" style="display: flex; flex-direction: column; margin-left: 20px">
-                        <div  style="display: flex; flex-direction: row;" class="name">
-                            <h1 style="color: white;">Arcane</h1>
-                            <button class="tap">></button>
-                        </div>
-
-                        <div class="text1" style="display: flex; flex-direction: row;" >
-                                                   
-                            <h4 style="color: yellow; position: relative; bottom: 48px;">MIDd 9.5/10</h4>
-                            <p  style="color: white; position: relative; bottom: 45px; margin-left: 3px; margin-right: 3px;">|</p>
-                            <h4 style="color: purple; position: relative; bottom: 48px;">* Rate</h4>
-                        </div>
-                        <p style="color: white; position: relative; bottom: 48px;">You don’t need to be an anime fan or a gamer to appreciate the magic of Netflix's mega-hit “Arcane.” Based on the online multiplayer game “League of Legends,” the show is surprisingly accessible, with a gorgeous mix of 2D and 3D animation, compelling characters, and a rich narrative that tackles big ideas while staying grounded in human relationships. The first season won over critics and fans alike, scoring a 9.0 rating on IMDb and quietly winning a Primetime Emmy for Outstanding Animated Program. Season 2 finds conflict simmering between the “haves” of utopian city Piltover and the “have-nots” of the underground Zaun, but also between estranged sisters Jinx (Ella Purnell) and Vi (Hailee Steinfeld). Although the series concludes in this final season, Linke has teased there are more “League” stories to tell. </p>
-                    </div>
-                </div>
-            </div>
-            <iframe width="350" height="250" src="https://www.youtube.com/embed/Pj-2KzHjjD0?si=9MmmoftHleZqKo4J" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="vidoe"></iframe> -->
+            
         </div>
+        <div class="content_creator" >
+            <div class="creator_" id="con2">
+
+            </div>
+        </div>
+        
     </div>
     <script src="varible.js"> </script>
     <script>
@@ -125,7 +140,8 @@
         const movieKey = urlParams.get("movie");
         const content = document.getElementById("con");
         if (movieKey && movie[movieKey]) {
-            const { name, midb, image, detail,vidoe,image_bg } = movie[movieKey];
+            const { name, midb, image, detail,vidoe,image_bg,creator} = movie[movieKey];
+
             content.innerHTML = `
                 <div class="image">
                 <img src="${image_bg}" alt="" class="img-bg">
@@ -148,10 +164,34 @@
                     </div>
                 </div>
                 <iframe width="350" height="250" src="${vidoe}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="vidoe"></iframe>
+                
             `
+            const content_creator = document.getElementById("con2")
+            for(let key_ in creator){
+                const {name,image} = creator[key_]
+                const div = document.createElement("div")
+                div.innerHTML =`
+                    <div class="person">
+                        <div>
+                            <img src="${image}" class="image_creator">
+                        <div/>
+                        
+                        <div class="name">
+                            <h3 class="name_creator">${name}</h3>
+                        </div>
+                    </div>
+                `
+                content_creator.appendChild(div)
+
+            }
+            
+            
         } else {
             document.body.innerHTML = `<h1>Movie not found</h1>`;
         }
+       
+
+
     </script>
     <script src="https://unpkg.com/scrollreveal"></script>
     <script>

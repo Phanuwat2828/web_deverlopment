@@ -5,7 +5,25 @@ const movie = {
         "image":"https://i.pinimg.com/736x/1e/3c/fb/1e3cfbc50ed3306e22c0802a866826da.jpg",
         "image_bg":"https://m.media-amazon.com/images/M/MV5BMWY0MWE3MmUtMmQ0ZS00Yzc2LTk5ZDEtMzYwYmE3ODA4ZWI5XkEyXkFqcGc@._V1_FMjpg_UX1800_.jpg",
         "detail":"You don’t need to be an anime fan or a gamer to appreciate the magic of Netflix's mega-hit “Arcane.” Based on the online multiplayer game “League of Legends,” the show is surprisingly accessible, with a gorgeous mix of 2D and 3D animation, compelling characters, and a rich narrative that tackles big ideas while staying grounded in human relationships. The first season won over critics and fans alike, scoring a 9.0 rating on IMDb and quietly winning a Primetime Emmy for Outstanding Animated Program. Season 2 finds conflict simmering between the “haves” of utopian city Piltover and the “have-nots” of the underground Zaun, but also between estranged sisters Jinx (Ella Purnell) and Vi (Hailee Steinfeld). Although the series concludes in this final season, Linke has teased there are more “League” stories to tell. ",
-        "vidoe":"https://www.youtube.com/embed/Pj-2KzHjjD0?si=9MmmoftHleZqKo4J"
+        "vidoe":"https://www.youtube.com/embed/Pj-2KzHjjD0?si=9MmmoftHleZqKo4J",
+        "creator":{
+            "0":{
+                "name":"Hailee Steinfeld",
+                "image":"https://m.media-amazon.com/images/M/MV5BYjg0MjA4OGEtMTc1ZS00ZmJhLTgyYjItMTY4YjI0NjVjNjllXkEyXkFqcGc@._V1_QL75_UX140_CR0,0,140,140_.jpg"
+            },
+            "1":{
+                "name":"Ella Purnell",
+                "image":"https://m.media-amazon.com/images/M/MV5BZGNkMWI4ZmItN2Y2Mi00Mzc1LWExYTctMjMzMjhmMDE0NWVkXkEyXkFqcGc@._V1_QL75_UX140_CR0,1,140,140_.jpg"
+            },
+            "2":{
+                "name":"Kevin Alejandro",
+                "image":"https://m.media-amazon.com/images/M/MV5BMTA0NDkyNzI0MTBeQTJeQWpwZ15BbWU4MDI4ODUxODUx._V1_QL75_UX140_CR0,12,140,140_.jpg"
+            },
+            "3":{
+                "name":"Katie Leung",
+                "image":"https://m.media-amazon.com/images/M/MV5BZDE3NDY1ZjItYTg2Ny00Y2JjLWEzNTItMzdjOGQ5OTBhNjVhXkEyXkFqcGc@._V1_QL75_UX140_CR0,12,140,140_.jpg"
+            }
+        }
     },
     "movie2":{
         "name":"Moana 2",
@@ -13,7 +31,26 @@ const movie = {
         "image":"https://i.pinimg.com/736x/43/0f/14/430f140dbde664145e19e09d74105ce5.jpg",
         "image_bg":"https://m.media-amazon.com/images/M/MV5BYTczYjYwMjktMGQ2My00NGRiLTlhY2EtMzE0ZTI0OTIxYjJlXkEyXkFqcGc@._V1_FMjpg_UX1800_.jpg",
         "detail":"Moana reunites with Maui after a mysterious call from her ancestors sets her off on a new high seas adventure. The sequel was inevitable, especially considering Moana was the most streamed movie of 2023 — not bad for a movie that was released in 2016. Auli’i Cravalho heads up the returning voice cast alongside Dwayne Johnson, with Temuera Morrison as Chief Tui, Rachel House as Gramma Tala, and Alan Tudyk as Heihei the rooster. And did you know the live-action movie is filming currently?",
-        "vidoe":"https://www.youtube.com/embed/hDZ7y8RP5HE?si=6UxV0-mbSVxQZbp7"
+        "vidoe":"https://www.youtube.com/embed/hDZ7y8RP5HE?si=6UxV0-mbSVxQZbp7",
+        "creator":{
+            "0":{
+                "name":"",
+                "image":""
+            },
+            "1":{
+                "name":"",
+                "image":""
+            },
+            "2":{
+                "name":"",
+                "image":""
+            },
+            "3":{
+                "name":"",
+                "image":""
+            }
+        }
+        
     },
     "movie3":{
         "name":"Wicked",
@@ -21,35 +58,125 @@ const movie = {
         "image":"https://i.pinimg.com/736x/36/10/84/36108435e6845f06e0103360cff7079f.jpg",
         "image_bg":"https://m.media-amazon.com/images/M/MV5BNTc5NmI2ODktMDMwOS00NzIxLWIwNGUtNmUwMTRiNWZjMTI3XkEyXkFqcGc@._V1_FMjpg_UX1800_.jpg",
         "vidoe":"https://www.youtube.com/embed/GpGByJa1Gb8?si=PLQhaXj8zRluSYMk",
-        "detail":"If you’re new to the world of Wicked, here’s what you need to know. In 1995, author Gregory Maguire wrote the novel “Wicked: The Life and Times of the Wicked Witch of the West”, a revisionist origin story about Elphaba, the antagonist from Frank L. Buam’s “The Wizard of Oz.” Then in 2003, the popular book was adapted into a Broadway musical that focused on the complicated relationship between Elphaba and her school roommate Glinda. Now, director John M. Chu is bringing this beloved fantasy tale to the silver screen with a musical movie starring Cynthia Erivo and Ariana Grande as the bewitching duo whose passion, talents, and personalities bring them together before fate takes them down very different paths."
+        "detail":"If you’re new to the world of Wicked, here’s what you need to know. In 1995, author Gregory Maguire wrote the novel “Wicked: The Life and Times of the Wicked Witch of the West”, a revisionist origin story about Elphaba, the antagonist from Frank L. Buam’s “The Wizard of Oz.” Then in 2003, the popular book was adapted into a Broadway musical that focused on the complicated relationship between Elphaba and her school roommate Glinda. Now, director John M. Chu is bringing this beloved fantasy tale to the silver screen with a musical movie starring Cynthia Erivo and Ariana Grande as the bewitching duo whose passion, talents, and personalities bring them together before fate takes them down very different paths.",
+        "creator":{
+            "0":{
+                "name":"",
+                "image":""
+            },
+            "1":{
+                "name":"",
+                "image":""
+            },
+            "2":{
+                "name":"",
+                "image":""
+            },
+            "3":{
+                "name":"",
+                "image":""
+            }
+        }
     },"movie4":{
         "name":"Squid Game",
         "midb":8,
         "image":"https://i.pinimg.com/736x/26/73/02/2673020dcb758c851483e769f96c3154.jpg",
         "image_bg":"https://www.cnet.com/a/img/resize/5bccae86b3ab1fa5a1be6a277209818b9c0b1d31/hub/2024/09/18/60900259-ccd5-484f-b77c-3c6a6af21808/en-us-squids2-teaser-thedrag-vertical-27x40-srgb-pre.jpg?auto=webp&fit=crop&height=675&width=1200",
         "vidoe":"https://www.youtube.com/embed/JqR4mVk4JgQ?si=E0EHD1vdhTl62zUw",
-        "detail":"It’s been three years since the entire world cheered on Gi-hun (Lee Jung-jae) as he escaped a lethal game show and vowed to track down those responsible. Now, the unlikely hero returns to make good on his promise in Season 2, which sees Player 456 head back into the game with a whole new group of contestants ready to set their humanity aside for a chance at the grand prize. Prepare yourself for more tense conflicts, shocking reveals, and the return of Young-hee the murderous “Red Light, Green Light” doll. The new season drops on December 26, and we can’t think of a better way to close out the holidays than with this grim exploration of greed, capitalism, and human perseverance."
+        "detail":"It’s been three years since the entire world cheered on Gi-hun (Lee Jung-jae) as he escaped a lethal game show and vowed to track down those responsible. Now, the unlikely hero returns to make good on his promise in Season 2, which sees Player 456 head back into the game with a whole new group of contestants ready to set their humanity aside for a chance at the grand prize. Prepare yourself for more tense conflicts, shocking reveals, and the return of Young-hee the murderous “Red Light, Green Light” doll. The new season drops on December 26, and we can’t think of a better way to close out the holidays than with this grim exploration of greed, capitalism, and human perseverance.",
+        "creator":{
+            "0":{
+                "name":"",
+                "image":""
+            },
+            "1":{
+                "name":"",
+                "image":""
+            },
+            "2":{
+                "name":"",
+                "image":""
+            },
+            "3":{
+                "name":"",
+                "image":""
+            }
+        }
     },"movie5":{
         "name":"Black Doves",
         "midb":"Dec. 5 on Netflix",
         "image":"https://m.media-amazon.com/images/M/MV5BMDQyNzE2NmYtMzExMy00NTBjLWE4ODItNjI1OTNkZWVjNDUyXkEyXkFqcGc@._V1_QL75_UX280_CR0,0,280,414_.jpg ",
         "image_bg":"https://m.media-amazon.com/images/M/MV5BOTdlZDBkN2YtNzg2Zi00ODk2LWI3OGItOGViZmY1MmU0NjY0XkEyXkFqcGc@._V1_FMjpg_UX1800_.jpg",
         "vidoe":"https://www.youtube.com/embed/1R0d2jW7a-I?si=vd-52zM1ntquHYWW",
-        "detail":"Keira Knightley and Ben Whishaw team up for a London-set spy series from the creator of “Girl/Haji” that reads like it could live in the same universe as “The Diplomat.” We’re talking secret affairs, assassinations, and a nasty global conspiracy so daunting, Netflix renewed the series for Season 2 already."
+        "detail":"Keira Knightley and Ben Whishaw team up for a London-set spy series from the creator of “Girl/Haji” that reads like it could live in the same universe as “The Diplomat.” We’re talking secret affairs, assassinations, and a nasty global conspiracy so daunting, Netflix renewed the series for Season 2 already.",
+        "creator":{
+            "0":{
+                "name":"",
+                "image":""
+            },
+            "1":{
+                "name":"",
+                "image":""
+            },
+            "2":{
+                "name":"",
+                "image":""
+            },
+            "3":{
+                "name":"",
+                "image":""
+            }
+        }
     },"movie6":{
         "name":"Secret Level",
         "midb":" Dec. 10 on Prime Video",
         "image":"https://m.media-amazon.com/images/M/MV5BNTgyYjdkZWQtYTBlZi00NzZkLTkyZWUtMzM5M2JmZDA0MDkyXkEyXkFqcGc@._V1_QL75_UY414_CR8,0,280,414_.jpg",
         "image_bg":"https://m.media-amazon.com/images/M/MV5BNTVkOGYyZWYtNzczYS00MzNjLTkzZTQtMWE5YzY5MWI0ZjZmXkEyXkFqcGc@._V1_FMjpg_UX1200_.jpg",
         "vidoe":"https://www.youtube.com/embed/YMZffM5bKmg?si=bRHW2yI79qTdRJqk",
-        "detail":"Blinky and the other Pac-Man ghosts will become carnivorous monsters in this animated anthology series comprised of 15 episodes, each an original story set within the world of a legendary video game. Mega Man, D&D, and the iconic miniature game Warhammer 40,000 will have dedicated episodes too. Picture what went went into securing rights from multiple video game publishers and making sure every studio is happy with the results. It’s an ambitious next step for Prime Video after “Fallout” and a chance for creator/producer Tim Miller to rebound after Borderlands."
+        "detail":"Blinky and the other Pac-Man ghosts will become carnivorous monsters in this animated anthology series comprised of 15 episodes, each an original story set within the world of a legendary video game. Mega Man, D&D, and the iconic miniature game Warhammer 40,000 will have dedicated episodes too. Picture what went went into securing rights from multiple video game publishers and making sure every studio is happy with the results. It’s an ambitious next step for Prime Video after “Fallout” and a chance for creator/producer Tim Miller to rebound after Borderlands.",
+        "creator":{
+            "0":{
+                "name":"",
+                "image":""
+            },
+            "1":{
+                "name":"",
+                "image":""
+            },
+            "2":{
+                "name":"",
+                "image":""
+            },
+            "3":{
+                "name":"",
+                "image":""
+            }
+        }
     },"movie7":{
         "name":"The Lord of the Rings: The War of the Rohirrim",
         "midb":7.5,
         "image":"https://m.media-amazon.com/images/M/MV5BMmU1YzZkMjAtYjNjOC00ZDFhLWE3Y2QtZTM2ZTdkZWM1OGM3XkEyXkFqcGc@._V1_QL75_UX280_CR0,0,280,414_.jpg",
         "image_bg":"https://m.media-amazon.com/images/M/MV5BY2Y4OTY0MjctZWFhZi00ODI2LWExMmQtZWViNjYzZGRkYjA3XkEyXkFqcGc@._V1_FMjpg_UX1200_.jpg",
         "vidoe":"https://www.youtube.com/embed/u4WpsGgNsME?si=ZkZb6TvB9dLyS_zr",
-        "detail":"A footnote of a story told in J. R. R. Tolkein's novel gets forged into an animated movie from anime god Kenji Kamiyama, employing a visual style that will pay tribute to Peter Jackson's depiction of Middle-earth. The story reveals the history of the kingdom of Rohan and its then king, Helm Hammerhand, in his war with the Dunlendings, the wild men living on the fringes of the kingdom. If you're only a bit familiar with the lore, yes, Helm Hammerhand has a lot to do with Helm's Deep. And he was seen in statue form in The Two Towers. Since we're living in Tolkein Time, Gandalf, Galadriel, and others are alive, but they are not involved in this particular tale. However, we felt actual real emotions learning that Miranda Otto's Eowyn will narrate the story."
+        "detail":"A footnote of a story told in J. R. R. Tolkein's novel gets forged into an animated movie from anime god Kenji Kamiyama, employing a visual style that will pay tribute to Peter Jackson's depiction of Middle-earth. The story reveals the history of the kingdom of Rohan and its then king, Helm Hammerhand, in his war with the Dunlendings, the wild men living on the fringes of the kingdom. If you're only a bit familiar with the lore, yes, Helm Hammerhand has a lot to do with Helm's Deep. And he was seen in statue form in The Two Towers. Since we're living in Tolkein Time, Gandalf, Galadriel, and others are alive, but they are not involved in this particular tale. However, we felt actual real emotions learning that Miranda Otto's Eowyn will narrate the story.",
+        "creator":{
+            "0":{
+                "name":"",
+                "image":""
+            },
+            "1":{
+                "name":"",
+                "image":""
+            },
+            "2":{
+                "name":"",
+                "image":""
+            },
+            "3":{
+                "name":"",
+                "image":""
+            }
+        }
     }
     
 }
