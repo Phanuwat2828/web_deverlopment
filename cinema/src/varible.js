@@ -34,20 +34,20 @@ const movie = {
         "vidoe":"https://www.youtube.com/embed/hDZ7y8RP5HE?si=6UxV0-mbSVxQZbp7",
         "creator":{
             "0":{
-                "name":"",
-                "image":""
+                "name":"Auli'i Cravalho",
+                "image":"https://m.media-amazon.com/images/M/MV5BMTlmZjhmN2ItOGQyOC00NWRmLTlmYjAtNzQ1ODdiNmIyOTExXkEyXkFqcGc@._V1_QL75_UX140_CR0,12,140,140_.jpg"
             },
             "1":{
-                "name":"",
-                "image":""
+                "name":"Dwayne Johnson",
+                "image":"https://m.media-amazon.com/images/M/MV5BOWUzNzIzMzQtNzMxYi00OWRiLTlhZjEtZTRjYWVkYzI4ZjMwXkEyXkFqcGc@._V1_QL75_UX140_CR0,12,140,140_.jpg"
             },
             "2":{
-                "name":"",
-                "image":""
+                "name":"Alan Tudyk",
+                "image":"https://m.media-amazon.com/images/M/MV5BMjE0MzEwNDUxNV5BMl5BanBnXkFtZTcwNTE1MDAzOQ@@._V1_QL75_UX140_CR0,9,140,140_.jpg"
             },
             "3":{
-                "name":"",
-                "image":""
+                "name":"Temuera Morrison",
+                "image":"https://m.media-amazon.com/images/M/MV5BMzNhOTY4NjktYTVkNC00NjVlLWIyYzgtMTc4MGZjZGE3ODhjXkEyXkFqcGc@._V1_QL75_UX140_CR0,0,140,140_.jpg"
             }
         }
         
@@ -61,20 +61,20 @@ const movie = {
         "detail":"If you’re new to the world of Wicked, here’s what you need to know. In 1995, author Gregory Maguire wrote the novel “Wicked: The Life and Times of the Wicked Witch of the West”, a revisionist origin story about Elphaba, the antagonist from Frank L. Buam’s “The Wizard of Oz.” Then in 2003, the popular book was adapted into a Broadway musical that focused on the complicated relationship between Elphaba and her school roommate Glinda. Now, director John M. Chu is bringing this beloved fantasy tale to the silver screen with a musical movie starring Cynthia Erivo and Ariana Grande as the bewitching duo whose passion, talents, and personalities bring them together before fate takes them down very different paths.",
         "creator":{
             "0":{
-                "name":"",
-                "image":""
+                "name":"Cynthia Erivo",
+                "image":"https://m.media-amazon.com/images/M/MV5BMTcyMTI3NzI1Nl5BMl5BanBnXkFtZTgwNjQ3Njk2NjM@._V1_QL75_UX140_CR0,6,140,140_.jpg"
             },
             "1":{
-                "name":"",
-                "image":""
+                "name":"Ariana Grande",
+                "image":"https://m.media-amazon.com/images/M/MV5BM2JhZWJmMDEtNTU5MS00YmQ3LTk1NjMtOGFlMjM2MjZlNjg5XkEyXkFqcGc@._V1_QL75_UY140_CR55,0,140,140_.jpg"
             },
             "2":{
-                "name":"",
-                "image":""
+                "name":"Jeff Goldblum",
+                "image":"https://m.media-amazon.com/images/M/MV5BZWIxM2YzMTEtMjFiNy00NWQ2LWI0Y2MtZGVmYjM0YWFmZThmXkEyXkFqcGc@._V1_QL75_UX140_CR0,0,140,140_.jpg"
             },
             "3":{
-                "name":"",
-                "image":""
+                "name":"Michelle Yeoh",
+                "image":"https://m.media-amazon.com/images/M/MV5BMTg0NTI0NDkzOF5BMl5BanBnXkFtZTcwMjYwMTIwNw@@._V1_QL75_UX140_CR0,16,140,140_.jpg"
             }
         }
     },"movie4":{
@@ -86,20 +86,24 @@ const movie = {
         "detail":"It’s been three years since the entire world cheered on Gi-hun (Lee Jung-jae) as he escaped a lethal game show and vowed to track down those responsible. Now, the unlikely hero returns to make good on his promise in Season 2, which sees Player 456 head back into the game with a whole new group of contestants ready to set their humanity aside for a chance at the grand prize. Prepare yourself for more tense conflicts, shocking reveals, and the return of Young-hee the murderous “Red Light, Green Light” doll. The new season drops on December 26, and we can’t think of a better way to close out the holidays than with this grim exploration of greed, capitalism, and human perseverance.",
         "creator":{
             "0":{
-                "name":"",
-                "image":""
+                "name":"Lee Jung-jae",
+                "image":"https://m.media-amazon.com/images/M/MV5BNzQ4YTczN2UtMGQxYi00YTMxLWI0NTAtNjc3YjYxZDBjMzg3XkEyXkFqcGc@._V1_QL75_UX140_CR0,0,140,140_.jpg"
             },
             "1":{
-                "name":"",
-                "image":""
+                "name":"Lee Byung-hun",
+                "image":"https://m.media-amazon.com/images/M/MV5BMmExYjVlNGUtMTA1OC00ZTcxLTk3N2EtN2FkYmY4Yzg4OTE3XkEyXkFqcGc@._V1_QL75_UX140_CR0,12,140,140_.jpg"
             },
             "2":{
-                "name":"",
-                "image":""
+                "name":"Wi Ha-joon",
+                "image":"https://m.media-amazon.com/images/M/MV5BODM3NmQ3YTItZGRjYi00YWY5LThmZDYtZDdhYjYwYzIzNmY4XkEyXkFqcGc@._V1_QL75_UX140_CR0,12,140,140_.jpg"
             },
             "3":{
-                "name":"",
-                "image":""
+                "name":"Gong Yoo",
+                "image":"https://m.media-amazon.com/images/M/MV5BMDE3NjdkOTgtMjNlZi00YzMzLTllNWEtZDllNDJmNWRiNmI0XkEyXkFqcGc@._V1_QL75_UY140_CR35,0,140,140_.jpg"
+            },
+            "4":{
+                "name":"Park Gyuyoung",
+                "image":"https://m.media-amazon.com/images/M/MV5BNmY2NGFiZTAtMWU0Ny00YWEyLThmNmUtZDNjN2Q4Zjg4MjNiXkEyXkFqcGc@._V1_CR511,0,3333,5000_QL75_UX140_CR0,12,140,140_.jpg"
             }
         }
     },"movie5":{
@@ -111,20 +115,24 @@ const movie = {
         "detail":"Keira Knightley and Ben Whishaw team up for a London-set spy series from the creator of “Girl/Haji” that reads like it could live in the same universe as “The Diplomat.” We’re talking secret affairs, assassinations, and a nasty global conspiracy so daunting, Netflix renewed the series for Season 2 already.",
         "creator":{
             "0":{
-                "name":"",
-                "image":""
+                "name":"Keira Knightley",
+                "image":"https://m.media-amazon.com/images/M/MV5BMTYwNDM0NDA3M15BMl5BanBnXkFtZTcwNTkzMjQ3OA@@._V1_QL75_UX140_CR0,6,140,140_.jpg"
             },
             "1":{
-                "name":"",
-                "image":""
+                "name":"Ben Whishaw",
+                "image":"https://m.media-amazon.com/images/M/MV5BMTc1MDYzNzY4MF5BMl5BanBnXkFtZTcwMDcwNzU0OA@@._V1_QL75_UX140_CR0,12,140,140_.jpg"
             },
             "2":{
-                "name":"",
-                "image":""
+                "name":"Sarah Lancashire",
+                "image":"https://m.media-amazon.com/images/M/MV5BMjI3MTk5MTU1NF5BMl5BanBnXkFtZTcwMzU1ODExOA@@._V1_QL75_UX140_CR0,0,140,140_.jpg"
             },
             "3":{
-                "name":"",
-                "image":""
+                "name":"Andrew Buchan",
+                "image":"https://m.media-amazon.com/images/M/MV5BODg3MmMzNjctM2Y1Yy00ZTZiLTlkY2EtN2IwMTFlNDMxOTliXkEyXkFqcGc@._V1_QL75_UX140_CR0,32,140,140_.jpg"
+            },
+            "4":{
+                "name":"Adeel Akhtar",
+                "image":"https://m.media-amazon.com/images/M/MV5BMTk2NTMwMjE2Ml5BMl5BanBnXkFtZTgwNDI5MDA1MzI@._V1_QL75_UX140_CR0,7,140,140_.jpg"
             }
         }
     },"movie6":{
@@ -136,20 +144,24 @@ const movie = {
         "detail":"Blinky and the other Pac-Man ghosts will become carnivorous monsters in this animated anthology series comprised of 15 episodes, each an original story set within the world of a legendary video game. Mega Man, D&D, and the iconic miniature game Warhammer 40,000 will have dedicated episodes too. Picture what went went into securing rights from multiple video game publishers and making sure every studio is happy with the results. It’s an ambitious next step for Prime Video after “Fallout” and a chance for creator/producer Tim Miller to rebound after Borderlands.",
         "creator":{
             "0":{
-                "name":"",
-                "image":""
+                "name":"Keanu Reeves",
+                "image":"https://m.media-amazon.com/images/M/MV5BNDEzOTdhNDUtY2EyMy00YTNmLWE5MjItZmRjMmQzYTRlMGRkXkEyXkFqcGc@._V1_QL75_UX140_CR0,12,140,140_.jpg"
             },
             "1":{
-                "name":"",
-                "image":""
+                "name":"Arnold Schwarzenegger",
+                "image":"https://m.media-amazon.com/images/M/MV5BMTI3MDc4NzUyMV5BMl5BanBnXkFtZTcwMTQyMTc5MQ@@._V1_QL75_UX140_CR0,0,140,140_.jpg"
             },
             "2":{
-                "name":"",
-                "image":""
+                "name":"Ariana Greenblatt",
+                "image":"https://m.media-amazon.com/images/M/MV5BZDJkMjNmYTUtNzdmYS00ZDVmLWIxZWQtZjhkZjAyM2FiNTkxXkEyXkFqcGc@._V1_QL75_UX140_CR0,0,140,140_.jpg"
             },
             "3":{
-                "name":"",
-                "image":""
+                "name":"Kevin Hart",
+                "image":"https://m.media-amazon.com/images/M/MV5BMTY4OTAxMjkxN15BMl5BanBnXkFtZTgwODg5MzYyMTE@._V1_QL75_UX140_CR0,13,140,140_.jpg"
+            },
+            "4":{
+                "name":"Laura Bailey",
+                "image":"https://m.media-amazon.com/images/M/MV5BMmZkOGUxOTktNTYzZS00YTAyLTgxYWItNTg1OTZlMDRkMjEwXkEyXkFqcGc@._V1_QL75_UX140_CR0,12,140,140_.jpg"
             }
         }
     },"movie7":{
@@ -161,20 +173,20 @@ const movie = {
         "detail":"A footnote of a story told in J. R. R. Tolkein's novel gets forged into an animated movie from anime god Kenji Kamiyama, employing a visual style that will pay tribute to Peter Jackson's depiction of Middle-earth. The story reveals the history of the kingdom of Rohan and its then king, Helm Hammerhand, in his war with the Dunlendings, the wild men living on the fringes of the kingdom. If you're only a bit familiar with the lore, yes, Helm Hammerhand has a lot to do with Helm's Deep. And he was seen in statue form in The Two Towers. Since we're living in Tolkein Time, Gandalf, Galadriel, and others are alive, but they are not involved in this particular tale. However, we felt actual real emotions learning that Miranda Otto's Eowyn will narrate the story.",
         "creator":{
             "0":{
-                "name":"",
-                "image":""
+                "name":"Brian Cox",
+                "image":"https://m.media-amazon.com/images/M/MV5BNTk2MTg1MjYtMmQ5Yy00OTI0LTkyYmQtMDVlNDQ5MTQyMzU3XkEyXkFqcGc@._V1_QL75_UX140_CR0,12,140,140_.jpg"
             },
             "1":{
-                "name":"",
-                "image":""
+                "name":"Miranda Otto",
+                "image":"https://m.media-amazon.com/images/M/MV5BMjAzNTMyMzEzM15BMl5BanBnXkFtZTgwMDk3MjM1OTE@._V1_QL75_UX140_CR0,12,140,140_.jpg"
             },
             "2":{
-                "name":"",
-                "image":""
+                "name":"Gaia Wise",
+                "image":"https://m.media-amazon.com/images/M/MV5BYjczYmJhNmMtYzc0Mi00MTRhLTg3YTAtNDE5Y2ViMWU4NGJiXkEyXkFqcGc@._V1_QL75_UX140_CR0,12,140,140_.jpg"
             },
             "3":{
-                "name":"",
-                "image":""
+                "name":"Luca Pasqualino",
+                "image":"https://m.media-amazon.com/images/M/MV5BZTdiNjdiN2EtODBjYi00ODViLTg0YjMtYWVjMzEwMzE5MTcwXkEyXkFqcGc@._V1_QL75_UX140_CR0,12,140,140_.jpg"
             }
         }
     }

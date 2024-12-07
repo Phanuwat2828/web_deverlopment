@@ -23,7 +23,7 @@
         }
         .container{
             width: 100%;
-            height: 2000px;
+            height: 1500px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -41,11 +41,9 @@
         .content_creator{
             width: 60%;
             height: 200px;
-            display: flex;
-            justify-content: center;
             position: relative;
-            left: 200px;
-            bottom: 120px;
+            left: 100px;
+            bottom: 80px;
             
         }
         .img-bg{
@@ -82,7 +80,7 @@
         .vidoe{
           position: absolute;
           right:23%;
-          top: 30%;
+          top: 20%;
         }
         .tap{
             font-size: 40px;
@@ -92,9 +90,7 @@
             background: none;
             border: none;
         }
-         :hover{
-            color: yellow;
-        }
+        
         .name button :hover{
             color: yellow;
         }
@@ -103,18 +99,30 @@
             width: 70%;
             display: flex;
             flex-direction: row;
+
         }
         .image_creator{
-            width: 65%;
+            width: 70%;
             border-radius: 50%;
+            border: solid 2px ;
+            
+        }
+        .image_creator:hover {
+            border: solid 2px yellow;
         }
         .name_creator{
             color: white;
             font-size: 15px;
         }
+        .name_creator:hover{
+            transition: 0.5s;
+            text-decoration: underline;
+            color: yellow;
+        }
         .person{
             width: 180px;
             height: 100%;
+            margin-top: 28vh;
             text-align: center;
             
         }
@@ -228,6 +236,17 @@
           origin:"top",
           delay:1100
         })
+        ScrollReveal().reveal(".image_creator",{
+          ...scrollreveal,
+          origin:"left",
+          delay:800
+        })
+        ScrollReveal().reveal(".name_creator",{
+          ...scrollreveal,
+          origin:"bottom",
+          delay:900
+        })
+        
         
     </script>
 </body>
