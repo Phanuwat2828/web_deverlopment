@@ -32,7 +32,7 @@
             </div>
         </nav>
         <div style="width: 100%; height: 70%; display: flex; align-items: center; justify-content: center;">
-            <div style="width: 70%; height: auto; display: flex; flex-direction: row; overflow: auto;"> 
+            <div style="width: 70vw; height: auto; display: flex; flex-direction: row; overflow: auto;"> 
                 <div class="card work_1" style="width: 18rem; margin-right: 10px;">
                     <img src="https://i.pinimg.com/736x/b1/0e/a3/b10ea3464a45138ffbd8077069846044.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
@@ -46,10 +46,10 @@
                     <div class="card-body">
                       <h5 class="card-title">2.Other Form</h5>
                       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="/web_deverlopment/cinema/src" class="btn btn-primary">click</a>
+                      <a href="/web_deverlopment/register/src" class="btn btn-primary">click</a>
                     </div>
                 </div>
-                <div class="card work_2" style="width: 18rem; margin-right: 10px;">
+                <div class="card work_3" style="width: 18rem; margin-right: 10px;">
                     <img src="https://i.pinimg.com/736x/77/cf/3c/77cf3c07f4dd2aec454407a57cebc365.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                     <h5 class="card-title">3.เร็วๆนี้</h5>
@@ -57,7 +57,7 @@
                       <a href="#" class="btn btn-primary">เร็วๆนี้</a>
                     </div>
                 </div>
-                <div class="card work_2" style="width: 18rem; margin-right: 10px;">
+                <div class="card work_4" style="width: 18rem; margin-right: 10px;">
                     <img src="https://i.pinimg.com/736x/77/cf/3c/77cf3c07f4dd2aec454407a57cebc365.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                       <h5 class="card-title">เร็วๆนี้</h5>
@@ -65,7 +65,7 @@
                       <a href="#" class="btn btn-primary">เร็วๆนี้</a>
                     </div>
                 </div>
-                <div class="card work_2" style="width: 18rem; margin-right: 10px;">
+                <div class="card work_5" style="width: 18rem; margin-right: 10px;">
                     <img src="https://i.pinimg.com/736x/77/cf/3c/77cf3c07f4dd2aec454407a57cebc365.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                       <h5 class="card-title">5.เร็วๆนี้</h5>
@@ -76,5 +76,41 @@
             </div>
         </div>
     </div>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+      const scrollreveal = {
+          distance:"50px",
+          origin:"bottom",
+          duration:1000
+      }
+      ScrollReveal().reveal(".work_1",{
+        ...scrollreveal,
+          origin:"right",
+          delay:200
+      })
+      ScrollReveal().reveal(".work_2",{
+        ...scrollreveal,
+          origin:"right",
+          delay:300
+      })
+      ScrollReveal().reveal(".work_3",{
+        ...scrollreveal,
+          origin:"right",
+          delay:400
+      })
+      ScrollReveal().reveal(".work_4",{
+        ...scrollreveal,
+          origin:"right",
+          delay:500
+      })
+      ScrollReveal().reveal(".work_5",{
+        ...scrollreveal,
+          origin:"right",
+          delay:600
+      })
+      
+
+  </script>
+
 </body>
 </html>
