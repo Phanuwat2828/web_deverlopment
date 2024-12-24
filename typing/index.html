@@ -12,6 +12,12 @@
             flex-direction: row;
             margin-right: 5px;
         }
+        .correct{
+            color: green;
+        }
+        .incorrect{
+            color: red;
+        }
     </style>
 </head>
 <body>
@@ -69,34 +75,49 @@
         const element1 = document.getElementById("show_typing");
         const active = document.getElementsByClassName("typing_active");
         let select = 0;
+        let i=0;
         for(let word of exam1){
             let word1 = document.createElement('div');
             word1.classList.add('word');
+         
             for(let text of word ){
                 let text1 = document.createElement('p');
                 text1.innerText = text
                 word1.appendChild(text1);
             }
+            
+            
             element1.appendChild(word1);
+            i++;
         }
         
         function examine(){
+            const element_ = document.querySelectorAll('#show_typing .word')
             const input = document.getElementById('input')
+            const word_element = element_[select];
             const data = input.value;
             let word = exam1[select];
-     
+            
+            // const pelement = document.querySelectorAll(word_element);
+            const p_elements = word_element.querySelectorAll('p');
+            // console.log(p_elements[data.length-1]);
+           
+           console.log(select)
             if(word[data.length-1] == data[data.length-1]){
-                console.log(input.value);
+                p_elements[data.length-1].classList.add('correct')
+                
+            }else{
+                p_elements[data.length-1].classList.add('incorrect')
             }
             document.addEventListener('keydown', (event) => {
-             
+                
                 if (event.code === 'Space') {
                     console.log(data.length);
                     if(word.length<=data.length+1){
                         select+=1;
                         input.value = "";
                     }
-                }
+                }  
             });
         }
         
