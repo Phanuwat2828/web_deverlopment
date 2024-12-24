@@ -18,6 +18,10 @@
         .incorrect{
             color: red;
         }
+        body{
+            background-color: #171717;
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -32,96 +36,151 @@
         crossorigin="anonymous"></script>
     <div>
         
-
-        <!-- jquery -->
-        <script   src="https://code.jquery.com/jquery-3.7.1.min.js"   integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="   crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
         <nav class="navbar bg-body-tertiary sticky-top">
             <div class="container-fluid">
                 <a class="navbar-brand">Web Typing </a>
             </div>
         </nav>
-        <div class="content" style="display: flex; flex-direction: column; align-items: center; background-color: aquamarine; margin-top: 20px; ">
+        <div class="content" style="display: flex; flex-direction: column; align-items: center; margin-top: 20px;">
             <div class="detail" style="display: flex; flex-direction: row; margin-bottom: 30px;">
                 <div class="time" style="text-align: center; margin-right: 40px;">
-                    <h2>01 : 00 : 00</h2>
+                    <h2 id="timer_">01:00</h2>
                     <h4>Time</h4>
                 </div>
                 <div class="time" style="text-align: center; margin-right: 40px;">
-                    <h2>12 WP</h2>
-                    <h4>Speed Wirte</h4>
+                    <h2 id="score">0 point</h2>
+                    <h4>Score</h4>
                 </div>
-                <div class="time" style="text-align: center;">
-                    <h2>45 Text</h2>
-                    <h4>Word</h4>
-                </div>
-
             </div>
-            <div class="input">
-                <div id="show_typing" style="display: flex; flex-direction: row;"></div>
-                <input type="text" oninput="examine()" id="input" style="background: none; border: none; outline: none;">
+            <div class="input" style="display: flex; flex-direction: column; align-items: center;">
+                <div id="show_typing" style="display: flex; flex-direction: row; font-size: 20px; margin-bottom: 10px; color: #424242;"></div>
+                <!-- style="background: none; border: none; outline: none;" -->
+                <input type="text" id="input" style="background-color: #424242; border: none; outline: none; color: yellow; font-size: 20px; border-radius: 10px; padding: 10px; margin-bottom: 20px;" >
+                <button type="button" class="btn btn-success " style="font-size: 20px;">Start</button>
             </div>
         </div> 
     </div>
-    
     <script>
-        const exam1 =  [
-            "In", "today’s", "digital", "age,", "typing", "efficiently", "is", "a", 
-            "crucial", "skill.", "Whether", "you’re", "drafting", "an", "email,", 
+        const exam1 = [
+            "In", "today's", "digital", "age,", "typing", "efficiently", "is", "a", 
+            "crucial", "skill.", "Whether", "you're", "drafting", "an", "email,", 
             "writing", "a", "report,", "or", "coding", "a", "program"
         ];
-        const exam2 = [];
-        const exam3 = [];
-        const exam4 = [];
+        let score = 0;
+        const typed = [];
+        let timeLeft = 60;
         const element1 = document.getElementById("show_typing");
-        const active = document.getElementsByClassName("typing_active");
+        const timerElement = document.getElementById('timer_');
+        const scoreElement = document.getElementById('score');
+        const input = document.getElementById("input");
         let select = 0;
-        let i=0;
-        for(let word of exam1){
-            let word1 = document.createElement('div');
-            word1.classList.add('word');
-         
-            for(let text of word ){
-                let text1 = document.createElement('p');
-                text1.innerText = text
-                word1.appendChild(text1);
+        let start = false;
+        let game_over = false;
+        const countdown = setInterval(() => {
+            if(start){
+                let minutes = Math.floor(timeLeft / 60);
+                let seconds = timeLeft % 60;
+
+                timerElement.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+                timeLeft--; 
+
+                if (timeLeft < 0) {
+                    clearInterval(countdown);
+                    timerElement.textContent = "Time's up!"; 
+                }
             }
-            
-            
-            element1.appendChild(word1);
-            i++;
-        }
-        
-        function examine(){
-            const element_ = document.querySelectorAll('#show_typing .word')
-            const input = document.getElementById('input')
-            const word_element = element_[select];
-            const data = input.value;
-            let word = exam1[select];
-            
-            // const pelement = document.querySelectorAll(word_element);
-            const p_elements = word_element.querySelectorAll('p');
-            // console.log(p_elements[data.length-1]);
-           
-           console.log(select)
-            if(word[data.length-1] == data[data.length-1]){
-                p_elements[data.length-1].classList.add('correct')
                 
-            }else{
-                p_elements[data.length-1].classList.add('incorrect')
+        }, 1000);
+        
+        
+    
+        for (let word of exam1) {
+            const wordDiv = document.createElement("div");
+            wordDiv.classList.add("word");
+    
+            for (let text of word) {
+                const letterP = document.createElement("p");
+                letterP.innerText = text;
+                wordDiv.appendChild(letterP);
             }
-            document.addEventListener('keydown', (event) => {
-                
-                if (event.code === 'Space') {
-                    console.log(data.length);
-                    if(word.length<=data.length+1){
-                        select+=1;
-                        input.value = "";
-                    }
-                }  
-            });
+            element1.appendChild(wordDiv);
         }
-        
-        
+
+        const elementWords = document.querySelectorAll("#show_typing .word");
+        const wordElement = elementWords[select];
+        wordElement.style.color = "white"
+        let incorrect = 0;
+
+        function examine() {
+            const wordElement = elementWords[select];
+            const pElements = wordElement.querySelectorAll("p");
+            const data = input.value.trim();
+            const currentWord = exam1[select];
+            
+            for (let i = 0; i < data.length; i++) {
+                if (currentWord[i] === data[i]) {
+                    pElements[i]?.classList.add("correct");
+                    pElements[i]?.classList.remove("incorrect");
+                } else {
+                    
+                    pElements[i]?.classList.add("incorrect");
+                    pElements[i]?.classList.remove("correct");
+                }
+            }
+            if (currentWord[data.length-1] !== data[data.length-1]) {
+                incorrect+=1;
+            }
+
+            if(incorrect==2){
+                score = Math.max(score-1,0)
+                scoreElement.textContent = `${score} point`
+                incorrect=0;
+            }
+            for (let i = data.length; i < currentWord.length; i++) {
+                pElements[i]?.classList.remove("correct", "incorrect");
+            }
+            if (data.length === currentWord.length) {
+
+                if(data===currentWord && select >= typed.length){
+                    score+=1;
+                    scoreElement.textContent = `${score} point`
+                    incorrect=0;
+                }
+                if(typed.length>=select){
+                    console.log("swap")
+                    typed[select] = input.value
+                }else{
+                    typed.push(input.value);
+                }
+                
+
+                select += 1;
+            
+
+                const el = elementWords[select];
+                el.style.color = "white"
+
+                input.value = ""; 
+                console.log(typed)
+                if (select >= exam1.length) {
+                    select = exam1.length - 1;
+                    console.log("Finished!");
+                }
+            }
+            console.log(incorrect)
+            
+        }
+        input.addEventListener("keydown", (event) => {
+            if (event.key === "Backspace" && input.value.length === 0 && select !=0) {
+                select = Math.max(select - 1, 0); 
+                console.log(select)
+                input.value = typed[select];
+            }
+        });
+        input.addEventListener("input", examine);
     </script>
+    
 </body>
 </html>

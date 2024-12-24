@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Practice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .prompt {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .input-box {
+            width: 100%;
+            max-width: 400px;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+        }
+        .stats {
+            margin-top: 20px;
+            font-size: 16px;
+        }
+        .start-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .start-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Typing Practice</h1>
+        <p class="prompt">Click "Start" to begin typing practice!</p>
+        <textarea class="input-box" rows="5" disabled></textarea>
+        <div class="stats">
+            <p>Time: <span id="time">0</span> seconds</p>
+            <p>Words Per Minute (WPM): <span id="wpm">0</span></p>
+            <p>Accuracy: <span id="accuracy">0</span>%</p>
+        </div>
+        <button class="start-button" id="start">Start</button>
+    </div>
+
+    <script>
+        const startButton = document.getElementById('start');
+        const inputBox = document.querySelector('.input-box');
+        const timeDisplay = document.getElementById('time');
+        const wpmDisplay = document.getElementById('wpm');
+        const accuracyDisplay = document.getElementById('accuracy');
+
+        let promptText = "The quick brown fox jumps over the lazy dog.";
+        let startTime, timerInterval;
+
+        function startTypingPractice() {
+            inputBox.disabled = false;
+            inputBox.value = "";
+            inputBox.focus();
+
+            startButton.disabled = true;
+            inputBox.placeholder = promptText;
+
+            startTime = Date.now();
+            timerInterval = setInterval(updateStats, 1000);
+        }
+
+        function updateStats() {
+            const elapsedTime = Math.floor((Date.now() - startTime) / 1000);
+            timeDisplay.textContent = elapsedTime;
+
+            const typedText = inputBox.value;
+            const wordsTyped = typedText.trim().split(/\s+/).length;
+            const correctWords = typedText.split(' ').filter((word, i) => word === promptText.split(' ')[i]).length;
+
+            const wpm = Math.round((wordsTyped / elapsedTime) * 60) || 0;
+            const accuracy = Math.round((correctWords / promptText.split(' ').length) * 100) || 0;
+
+            wpmDisplay.textContent = wpm;
+            accuracyDisplay.textContent = accuracy;
+        }
+
+        startButton.addEventListener('click', () => {
+            startTypingPractice();
+        });
+    </script>
+</body>
+</html>
