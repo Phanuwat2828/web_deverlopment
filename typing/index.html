@@ -22,6 +22,9 @@
             background-color: #171717;
             color: white;
         }
+        .active_start{
+            color: #424242;
+        }
     </style>
 </head>
 <body>
@@ -34,7 +37,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
         integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
         crossorigin="anonymous"></script>
-    <div>
+    <div >
         
         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
         <nav class="navbar bg-body-tertiary sticky-top">
@@ -54,10 +57,11 @@
                 </div>
             </div>
             <div class="input" style="display: flex; flex-direction: column; align-items: center;">
-                <div id="show_typing" style="display: flex; flex-direction: row; font-size: 20px; margin-bottom: 10px; color: #424242;"></div>
+                <div id="show_typing" style="display: flex; flex-direction: row; font-size: 25px; margin-bottom: 10px; "></div>
                 <!-- style="background: none; border: none; outline: none;" -->
                 <input type="text" id="input" style="background-color: #424242; border: none; outline: none; color: yellow; font-size: 20px; border-radius: 10px; padding: 10px; margin-bottom: 20px;" >
                 <button type="button" class="btn btn-success " style="font-size: 20px;" onclick="Start()" id="start">Start</button>
+                <button type="button" class="btn btn-info " style="font-size: 20px; display: none;" onclick="restart()" id="restart">Restart</button>
             </div>
         </div> 
    
@@ -75,16 +79,15 @@
         const timerElement = document.getElementById('timer_');
         const scoreElement = document.getElementById('score');
         const startele = document.getElementById('start');
+        const restartele = document.getElementById('restart');
         const input = document.getElementById("input");
         let select = 0;
         let start = false;
         let game_over = false;
-
-        
-    
         function Start(){
             start = !start;
             input.value = "";
+           
             if(start){
                 timeLeft = 60;
                 const countdown = setInterval(() => {
@@ -95,7 +98,12 @@
                     if (timeLeft < 0) {
                         clearInterval(countdown);
                         game_over =true;
+                        start = false
                         timerElement.textContent = "game over"; 
+                        element1.classList.remove('active_start')
+                        element1.classList.add('incorrect')
+                        restartele.style.display="block"
+
                     }
                 }, 1000);
                
@@ -103,6 +111,9 @@
 
             }
             
+        }
+        function restart(){
+            window.location.reload()
         }
         for (let word of exam1) {
             const wordDiv = document.createElement("div");
@@ -118,6 +129,7 @@
         const elementWords = document.querySelectorAll("#show_typing .word");
         const wordElement = elementWords[select];
         wordElement.style.color = "white"
+        element1.classList.add("active_start")
         let incorrect = 0;
 
         function examine() {
@@ -151,9 +163,11 @@
                 if (data.length === currentWord.length) {
 
                     if(data===currentWord && select >= typed.length){
-                        score+=1;
-                        scoreElement.textContent = `${score} point`
-                        incorrect=0;
+                        if(!game_over){
+                            score+=1;
+                            scoreElement.textContent = `${score} point`
+                            incorrect=0;
+                        }
                     }
                     if(typed.length>=select){
                         console.log("swap")
