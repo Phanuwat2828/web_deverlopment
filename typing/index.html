@@ -38,6 +38,42 @@
         integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
         crossorigin="anonymous"></script>
     <div >
+        <div class="modal" tabindex="-1" id="modal_">
+            <div class="modal-dialog ">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title " style="color: #171717;">Score</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="color: #171717;">
+                    <div style="display: flex; flex-direction: row; justify-content: space-around;">
+                        <div style="display: flex; align-items: center; flex-direction: column;">
+                            <h5>Incorrect.</h5>
+                            <h1 style="color: red; border: solid 1px red ; text-align:center; width: 100px; border-radius: 5px;" id="score_incorrect">45</h1>
+                        </div>
+                        <div style="display: flex; align-items: center; flex-direction: column;">
+                            <h5>Score.</h5>
+                            <h1 style="color: yellowgreen; border: solid 1px yellowgreen ; text-align:center; width: 100px; border-radius: 5px;" id="score_total">100</h1>
+                        </div>
+                        <div style="display: flex; align-items: center; flex-direction: column;">
+                            <h5>Correct.</h5>
+                            <h1 style="color: green; border: solid 1px green ; text-align:center; width: 100px; border-radius: 5px;" id="score_correct">10</h1>
+                        </div>
+                    </div>
+                    <div style="width: 100%; display: flex; align-items: center; margin-top: 30px; flex-direction: column;">
+                        <h3>Time out</h3>
+                        <h2 id="timer_" style="color: #FF9D23;">01:00</h2>
+                       
+                    </div>
+            
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="restart()">Play again</button>
+                </div>
+                </div>
+            </div>
+        </div>
         
         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
         <nav class="navbar bg-body-tertiary sticky-top">
@@ -48,7 +84,7 @@
         <div class="content" style="display: flex; flex-direction: column; align-items: center; margin-top: 20px;">
             <div class="detail" style="display: flex; flex-direction: row; margin-bottom: 30px;">
                 <div class="time" style="text-align: center; margin-right: 40px;">
-                    <h2 id="timer_">01:00</h2>
+                    <h2 id="timer_1">01:00</h2>
                     <h4>Time</h4>
                 </div>
                 <div class="time" style="text-align: center; margin-right: 40px;">
@@ -63,8 +99,7 @@
                 <button type="button" class="btn btn-success " style="font-size: 20px;" onclick="Start()" id="start">Start</button>
                 <button type="button" class="btn btn-info " style="font-size: 20px; display: none;" onclick="restart()" id="restart">Restart</button>
             </div>
-        </div> 
-   
+        </div>
     </div>
     <script>
         const exam1 = [
@@ -72,16 +107,22 @@
             "crucial", "skill.", "Whether", "you're", "drafting", "an", "email,", 
             "writing", "a", "report,", "or", "coding", "a", "program"
         ];
+        // const exam1 = ["test"] 
         let score = 0;
         const typed = [];
         let timeLeft = 60;
+        let totalincorrect = 0;
+        let totalcorrect = 0;
         const element1 = document.getElementById("show_typing");
         const timerElement = document.getElementById('timer_');
+        const timerElement1 = document.getElementById('timer_1');
         const scoreElement = document.getElementById('score');
         const startele = document.getElementById('start');
         const restartele = document.getElementById('restart');
         const input = document.getElementById("input");
+        const modal = new bootstrap.Modal(document.getElementById('modal_'))
         let select = 0;
+        // modal.show()
         let start = false;
         let game_over = false;
         function Start(){
@@ -94,15 +135,27 @@
                     let minutes = Math.floor(timeLeft / 60);
                     let seconds = timeLeft % 60;
                     timerElement.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-                    timeLeft--; 
+                    timerElement1.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+                    if(!game_over){
+                        timeLeft--; 
+                    }
                     if (timeLeft < 0) {
-                        clearInterval(countdown);
                         game_over =true;
+                    }
+                    if(select+1>exam1.length){
+                        game_over = true;
+                    }
+                    if(game_over){
+                        modal.show()
+                        clearInterval(countdown);
                         start = false
-                        timerElement.textContent = "game over"; 
+                        timerElement1.textContent = "Game over"; 
                         element1.classList.remove('active_start')
                         element1.classList.add('incorrect')
                         restartele.style.display="block"
+                        document.getElementById("score_incorrect").textContent = totalincorrect;
+                        document.getElementById("score_total").textContent = score;
+                        document.getElementById("score_correct").textContent = totalcorrect;
 
                     }
                 }, 1000);
@@ -150,8 +203,10 @@
                 }
                 if (currentWord[data.length-1] !== data[data.length-1]) {
                     incorrect+=1;
+                    totalincorrect+=1;
+                }else{
+                    totalcorrect+=1;
                 }
-
                 if(incorrect==2){
                     score = Math.max(score-1,0)
                     scoreElement.textContent = `${score} point`
@@ -175,11 +230,8 @@
                     }else{
                         typed.push(input.value);
                     }
-                    
-
                     select += 1;
-                
-
+                    
                     const el = elementWords[select];
                     el.style.color = "white"
 
@@ -198,6 +250,7 @@
                 select = Math.max(select - 1, 0); 
                 console.log(select)
                 input.value = typed[select];
+                
             }
         });
         input.addEventListener("input", examine);
