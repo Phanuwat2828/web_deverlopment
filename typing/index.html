@@ -92,21 +92,55 @@
                     <h4>Score</h4>
                 </div>
             </div>
-            <div class="input" style="display: flex; flex-direction: column; align-items: center;">
-                <div id="show_typing" style="display: flex; flex-direction: row; font-size: 25px; margin-bottom: 10px; "></div>
+            <div class="input" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <div id="show_typing" style="display: flex; flex-direction: row; font-size: 25px; margin-bottom: 10px; width: 80%; flex-wrap: wrap;"></div>
                 <!-- style="background: none; border: none; outline: none;" -->
                 <input type="text" id="input" style="background-color: #424242; border: none; outline: none; color: yellow; font-size: 20px; border-radius: 10px; padding: 10px; margin-bottom: 20px;" >
                 <button type="button" class="btn btn-success " style="font-size: 20px;" onclick="Start()" id="start">Start</button>
                 <button type="button" class="btn btn-info " style="font-size: 20px; display: none;" onclick="restart()" id="restart">Restart</button>
+                <button type="button" class="btn btn-info " style="font-size: 20px; margin-top: 20px;" onclick="random_word()" id="random">Random Again</button>
             </div>
         </div>
     </div>
     <script>
-        const exam1 = [
+        const data_text = [
             "In", "today's", "digital", "age,", "typing", "efficiently", "is", "a", 
             "crucial", "skill.", "Whether", "you're", "drafting", "an", "email,", 
             "writing", "a", "report,", "or", "coding", "a", "program"
         ];
+        let exam1 = [];
+        const uniqueDataText = [...new Set(data_text)];
+
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+        function random_word(){
+            shuffle(uniqueDataText);
+            exam1.length = 0;
+            exam1 = [...uniqueDataText];
+            document.querySelectorAll("#show_typing .word").forEach(element => element.remove());
+            for (let word of exam1) {
+                const wordDiv = document.createElement("div");
+                wordDiv.classList.add("word");
+                for (let text of word) {
+                    const letterP = document.createElement("p");
+                    letterP.innerText = text;
+                    wordDiv.appendChild(letterP);
+                }
+                element1.appendChild(wordDiv);
+            }
+            const elementWords = document.querySelectorAll("#show_typing .word");
+            const wordElement = elementWords[select];
+            wordElement.style.color = "white"
+        }
+        shuffle(uniqueDataText);
+        exam1 = [...uniqueDataText];
+       
+
+        
         // const exam1 = ["test"] 
         let score = 0;
         const typed = [];
@@ -118,6 +152,7 @@
         const timerElement1 = document.getElementById('timer_1');
         const scoreElement = document.getElementById('score');
         const startele = document.getElementById('start');
+        const bt_ran = document.getElementById('random');
         const restartele = document.getElementById('restart');
         const input = document.getElementById("input");
         const modal = new bootstrap.Modal(document.getElementById('modal_'))
@@ -128,8 +163,9 @@
         function Start(){
             start = !start;
             input.value = "";
-           
             if(start){
+                document.getElementById('input').focus(); 
+                bt_ran.style.display = "none";
                 timeLeft = 60;
                 const countdown = setInterval(() => {
                     let minutes = Math.floor(timeLeft / 60);
@@ -156,10 +192,8 @@
                         document.getElementById("score_incorrect").textContent = totalincorrect;
                         document.getElementById("score_total").textContent = score;
                         document.getElementById("score_correct").textContent = totalcorrect;
-
                     }
                 }, 1000);
-               
                 startele.style.display = "none"
 
             }
@@ -179,7 +213,7 @@
             }
             element1.appendChild(wordDiv);
         }
-        const elementWords = document.querySelectorAll("#show_typing .word");
+        let elementWords = document.querySelectorAll("#show_typing .word");
         const wordElement = elementWords[select];
         wordElement.style.color = "white"
         element1.classList.add("active_start")
@@ -187,11 +221,11 @@
 
         function examine() {
             if(start){
+                elementWords = document.querySelectorAll("#show_typing .word");
                 const wordElement = elementWords[select];
                 const pElements = wordElement.querySelectorAll("p");
                 const data = input.value.trim();
                 const currentWord = exam1[select];
-                
                 for (let i = 0; i < data.length; i++) {
                     if (currentWord[i] === data[i]) {
                         pElements[i]?.classList.add("correct");
