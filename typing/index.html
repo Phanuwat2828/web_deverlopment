@@ -7,6 +7,53 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
+        @keyframes enlargeText {
+            from {
+                font-size: 16px;
+            }
+            to {
+                font-size: 30px;
+                text-shadow: 1px 1px 20px green;
+            }
+        }
+        @keyframes shake {
+            0%, 100% {
+                text-shadow: 1px 1px 20px red;
+                transform: translateX(0);
+            }
+            10%, 30%, 50%, 70%, 90% {
+                transform: translateX(-3px);
+            }
+            20%, 40%, 60%, 80% {
+                transform: translateX(3px);
+            }
+        }
+        @keyframes change-color{
+            from{
+                color: #424242; 
+            }
+            to{
+                color: white;
+                text-shadow: 1px 1px 20px white;
+            }
+        }
+       
+        .btn-all{
+            background-color: transparent;
+            border: none;
+            outline: none;
+            color: #424242;
+        }
+        .text-now{
+            animation-name: change-color;
+            animation-duration: 0.4s;
+            animation-fill-mode: forwards;
+        }
+        .btn-all:hover{
+            animation-name: change-color;
+            animation-duration: 0.4s;
+            animation-fill-mode: forwards;
+        }
         .word{
             display: flex;
             flex-direction: row;
@@ -14,9 +61,16 @@
         }
         .correct{
             color: green;
+            animation-name: enlargeText;
+            animation-duration: 0.4s;
+            animation-fill-mode: forwards;
         }
         .incorrect{
             color: red;
+            animation-name: shake;
+            font-size: 30px;
+            animation-duration: 0.5s;
+            animation-fill-mode: forwards;
         }
         body{
             background-color: #171717;
@@ -24,6 +78,9 @@
         }
         .active_start{
             color: #424242;
+        }
+        .pointer{
+            border-bottom: 2px solid yellow;
         }
     </style>
 </head>
@@ -39,38 +96,37 @@
         crossorigin="anonymous"></script>
     <div >
         <div class="modal" tabindex="-1" id="modal_">
-            <div class="modal-dialog ">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title " style="color: #171717;">Score</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body" style="color: #171717;">
-                    <div style="display: flex; flex-direction: row; justify-content: space-around;">
-                        <div style="display: flex; align-items: center; flex-direction: column;">
-                            <h5>Incorrect.</h5>
-                            <h1 style="color: red; border: solid 1px red ; text-align:center; width: 100px; border-radius: 5px;" id="score_incorrect">45</h1>
-                        </div>
-                        <div style="display: flex; align-items: center; flex-direction: column;">
-                            <h5>Score.</h5>
-                            <h1 style="color: yellowgreen; border: solid 1px yellowgreen ; text-align:center; width: 100px; border-radius: 5px;" id="score_total">100</h1>
-                        </div>
-                        <div style="display: flex; align-items: center; flex-direction: column;">
-                            <h5>Correct.</h5>
-                            <h1 style="color: green; border: solid 1px green ; text-align:center; width: 100px; border-radius: 5px;" id="score_correct">10</h1>
-                        </div>
-                    </div>
-                    <div style="width: 100%; display: flex; align-items: center; margin-top: 30px; flex-direction: column;">
-                        <h3>Time out</h3>
-                        <h2 id="timer_" style="color: #FF9D23;">01:00</h2>
+            <div class="modal-dialog " >
+                <div class="modal-content" style=" background-color: #171717;">
+                    <div class="modal-header" style="border: none;">
+                        <h5 class="text-now " style="color: #171717;" >Score</h5>
                        
                     </div>
-            
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" onclick="restart()">Play again</button>
-                </div>
+                    <div class="modal-body" style="color: #171717; border: none;">
+                        <div style="display: flex; flex-direction: row; justify-content: space-around;">
+                            <div style="display: flex; align-items: center; flex-direction: column;">
+                                <h5 class="text-now">Incorrect.</h5>
+                                <h1 style="color: red; border: solid 1px red ; text-align:center; width: 100px; border-radius: 5px;" id="score_incorrect">45</h1>
+                            </div>
+                            <div style="display: flex; align-items: center; flex-direction: column;">
+                                <h5  class="text-now">Score.</h5>
+                                <h1 style="color: yellowgreen; border: solid 1px yellowgreen ; text-align:center; width: 100px; border-radius: 5px;" id="score_total">100</h1>
+                            </div>
+                            <div style="display: flex; align-items: center; flex-direction: column;">
+                                <h5  class="text-now">Correct.</h5>
+                                <h1 style="color: green; border: solid 1px green ; text-align:center; width: 100px; border-radius: 5px;" id="score_correct">10</h1>
+                            </div>
+                        </div>
+                        <div style="width: 100%; display: flex; align-items: center; margin-top: 30px; flex-direction: column; ">
+                            <h3 class="text-now">Time out</h3>
+                            <h2 id="timer_" class="btn-all">01:00</h2>
+                        </div>
+                
+                    </div>
+                    <div class="modal-footer" style="border: none;">
+                        <button type="button" class="btn-all" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn-all" onclick="restart()">Play again</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -96,17 +152,20 @@
                 <div id="show_typing" style="display: flex; flex-direction: row; font-size: 25px; margin-bottom: 10px; width: 80%; flex-wrap: wrap;"></div>
                 <!-- style="background: none; border: none; outline: none;" -->
                 <input type="text" id="input" style="background-color: #424242; border: none; outline: none; color: yellow; font-size: 20px; border-radius: 10px; padding: 10px; margin-bottom: 20px;" >
-                <button type="button" class="btn btn-success " style="font-size: 20px;" onclick="Start()" id="start">Start</button>
-                <button type="button" class="btn btn-info " style="font-size: 20px; display: none;" onclick="restart()" id="restart">Restart</button>
-                <button type="button" class="btn btn-info " style="font-size: 20px; margin-top: 20px;" onclick="random_word()" id="random">Random Again</button>
+                <button type="button" class="btn-all" style="font-size: 20px; " onclick="Start()" id="start">Start</button>
+                <button type="button" class="btn-all" style="font-size: 20px; display: none;" onclick="restart()" id="restart">Restart</button>
+                <button type="button" class="btn-all" style="font-size: 20px; margin-top: 20px;" onclick="random_word()" id="random">Random Word</button>
             </div>
         </div>
     </div>
     <script>
         const data_text = [
-            "In", "today's", "digital", "age,", "typing", "efficiently", "is", "a", 
+            "In", "today's", "digital", "age,", "typing", "efficiently", "is", "and", 
             "crucial", "skill.", "Whether", "you're", "drafting", "an", "email,", 
-            "writing", "a", "report,", "or", "coding", "a", "program"
+            "writing", "come", "report,", "or", "coding", "The", "program",
+            "Ocean", "Harmony", "Crimson", "Lively", "Journey",
+            "Whisper", "Breeze", "Tranquil", "Spark", "Echo",
+            "Mystery", "Velvet", "Radiant", "Serenade"
         ];
         let exam1 = [];
         const uniqueDataText = [...new Set(data_text)];
@@ -134,14 +193,13 @@
             }
             const elementWords = document.querySelectorAll("#show_typing .word");
             const wordElement = elementWords[select];
-            wordElement.style.color = "white"
+            const p_element = wordElement.querySelectorAll("p");
+            p_element[0]?.classList.add("pointer");
+            wordElement.classList.add("text-now")
         }
         shuffle(uniqueDataText);
         exam1 = [...uniqueDataText];
        
-
-        
-        // const exam1 = ["test"] 
         let score = 0;
         const typed = [];
         let timeLeft = 60;
@@ -157,7 +215,6 @@
         const input = document.getElementById("input");
         const modal = new bootstrap.Modal(document.getElementById('modal_'))
         let select = 0;
-        // modal.show()
         let start = false;
         let game_over = false;
         function Start(){
@@ -195,9 +252,7 @@
                     }
                 }, 1000);
                 startele.style.display = "none"
-
             }
-            
         }
         function restart(){
             window.location.reload()
@@ -215,10 +270,12 @@
         }
         let elementWords = document.querySelectorAll("#show_typing .word");
         const wordElement = elementWords[select];
-        wordElement.style.color = "white"
-        element1.classList.add("active_start")
+        const p_element = wordElement.querySelectorAll("p");
+        p_element[0]?.classList.add("pointer");
+        wordElement.classList.add("text-now")
+        console.log(wordElement);
+        element1.classList.add("active_start");
         let incorrect = 0;
-
         function examine() {
             if(start){
                 elementWords = document.querySelectorAll("#show_typing .word");
@@ -226,6 +283,9 @@
                 const pElements = wordElement.querySelectorAll("p");
                 const data = input.value.trim();
                 const currentWord = exam1[select];
+                let is_incorrect = false;
+                pElements[data.length-1]?.classList.remove("pointer");
+                pElements[data.length]?.classList.add("pointer");
                 for (let i = 0; i < data.length; i++) {
                     if (currentWord[i] === data[i]) {
                         pElements[i]?.classList.add("correct");
@@ -235,49 +295,64 @@
                         pElements[i]?.classList.remove("correct");
                     }
                 }
-                if (currentWord[data.length-1] !== data[data.length-1]) {
-                    incorrect+=1;
-                    totalincorrect+=1;
-                }else{
-                    totalcorrect+=1;
-                }
-                if(incorrect==2){
-                    score = Math.max(score-1,0)
-                    scoreElement.textContent = `${score} point`
-                    incorrect=0;
+                if(select>=typed.length){
+                    if (currentWord[data.length-1] !== data[data.length-1]) {
+                        incorrect+=1;
+                        totalincorrect+=1;
+                    }else{
+                        totalcorrect+=1;
+                    }
+                    if(incorrect>=2){
+                        score = Math.max(score-1,0)
+                        select += 1;
+                        const el = elementWords[select];
+                        el.classList.add("text-now")
+                        typed.push(input.value);
+                        input.value = "";
+                        scoreElement.textContent = `${score} point`
+                        incorrect=0;
+                        is_incorrect = true;
+                        pElements[data.length]?.classList.remove("pointer");
+                        elementWords[select].querySelectorAll("p")[0]?.classList.add("pointer");
+                    }else{
+                        is_incorrect = false;
+                    }
                 }
                 for (let i = data.length; i < currentWord.length; i++) {
                     pElements[i]?.classList.remove("correct", "incorrect");
                 }
                 if (data.length === currentWord.length) {
-
                     if(data===currentWord && select >= typed.length){
                         if(!game_over){
                             score+=1;
                             scoreElement.textContent = `${score} point`
-                            incorrect=0;
                         }
                     }
-                    if(typed.length>=select){
+                    if(typed.length>=select && !is_incorrect){
                         console.log("swap")
                         typed[select] = input.value
-                    }else{
+                    }else if(!is_incorrect){
                         typed.push(input.value);
                     }
-                    select += 1;
                     
+                    if(!is_incorrect){
+                        incorrect=0;
+                        select += 1;
+                        pElements[data.length]?.classList.remove("pointer");
+                        
+                    }
                     const el = elementWords[select];
-                    el.style.color = "white"
-
-                    input.value = ""; 
-                    console.log(typed)
+                    el.classList.add("text-now")
+                    input.value = "";
+                    
                     if (select >= exam1.length) {
                         select = exam1.length - 1;
                         console.log("Finished!");
+                    }else{
+                        elementWords[select].querySelectorAll("p")[0]?.classList.add("pointer");
                     }
                 }
-                console.log(incorrect)
-                }
+            }
         }
         input.addEventListener("keydown", (event) => {
             if (event.key === "Backspace" && input.value.length === 0 && select !=0) {
