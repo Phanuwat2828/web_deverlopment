@@ -73,25 +73,8 @@
 
     }
     session_start();
-    $name = $_POST['name'];
-    $lastName = $_POST['lastname'];
-    $id = $_POST['id'];
-    $birth = $_POST['birth'];
-    $avg_gpa = $_POST['avg_gpa'];
-    $fontname = $_POST['gender'];
-    $level = $_POST['level'];
     $index = $_POST['index'];
-    echo $index;
-    $data = unserialize($_SESSION['person'][$index]);
-    $data->setName($name);
-    $data->setLastName($lastName);
-    $data->setId($id);
-    $data->setBirth($birth);
-    $data->setAvgGpa($avg_gpa);
-    $data->setFontname($fontname);
-    $data->setLevel($level);
-    $_SESSION['person'][$index] = serialize($data);
+    $person = new Person($_POST['name'], $_POST['lastname'],$_POST['id'], $_POST['birth'], $_POST['avg_gpa'], $_POST['gender'], $_POST['level']);
+    $_SESSION['person'][$index] = serialize($person);
     header("Location: index.php");
     exit();
-?>
-

@@ -22,7 +22,7 @@
     <div class="content" style="width: 100%; height: 100%; display: flex; justify-content: center;">
         <div class="content_1 border border-light-subtle" style="width: 50%; height: 100%; display: flex; flex-direction: column; border-radius: 10px; padding: 50px; margin-top:20px;">
             <h1 class="title">Register</h1>
-            <form action="set_session.php" method="POST">
+            <form action="set_session.php" method="POST" name="status" value="add">
             <div class="mb-3 user2">
                     <label for="exampleFormControlInput1" class="form-label">ชื่อนิสิต</label>
                     <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Figer768" name="name">

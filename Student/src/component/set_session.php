@@ -72,11 +72,17 @@
         }
 
     }
+    $status = $_POST["status"];
     // $name, $lastname, $id, $birth, $avg_gpa, $fontname, $level
-    $person = new Person($_POST['name'], $_POST['lastname'],$_POST['id'], $_POST['birth'], $_POST['avg_gpa'], $_POST['gender'], $_POST['level']);
-    session_start();
-    if(!isset($_SESSION["person"])){
-        $_SESSION["person"] = array();
+    if($status==="add"){
+        $person = new Person($_POST['name'], $_POST['lastname'],$_POST['id'], $_POST['birth'], $_POST['avg_gpa'], $_POST['gender'], $_POST['level']);
+        session_start();
+        if(!isset($_SESSION["person"])){
+            $_SESSION["person"] = array();
+        }
+        array_push($_SESSION["person"],serialize($person));
+        header("Location: index.php");
+    }else if($status=== "edit"){
+        
     }
-    array_push($_SESSION["person"],serialize($person));
-    header("Location: index.php");
+    
