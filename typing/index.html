@@ -310,7 +310,7 @@
                         select += 1;
                         const el = elementWords[select];
                         el.classList.add("text-now")
-                        typed.push(input.value);
+                        typed.push(input.value.trim());
                         input.value = "";
                         scoreElement.textContent = `${score} point`
                         incorrect=0;
@@ -333,9 +333,9 @@
                     }
                     if(typed.length>=select && !is_incorrect){
                         console.log("swap")
-                        typed[select] = input.value
+                        typed[select] = input.value.trim()
                     }else if(!is_incorrect){
-                        typed.push(input.value);
+                        typed.push(input.value.trim());
                     }
                     
                     if(!is_incorrect){
