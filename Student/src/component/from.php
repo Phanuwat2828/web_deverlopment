@@ -21,8 +21,8 @@
     </nav>
     <div class="content" style="width: 100%; height: 100%; display: flex; justify-content: center;">
         <div class="content_1 border border-light-subtle" style="width: 50%; height: 100%; display: flex; flex-direction: column; border-radius: 10px; padding: 50px; margin-top:20px;">
-            <h1 class="title">Register</h1>
-            <form action="set_session.php" method="POST" name="status" value="add">
+            <h1 class="title">Form</h1>
+            <form action="set_session.php" method="POST">
             <div class="mb-3 user2">
                     <label for="exampleFormControlInput1" class="form-label">ชื่อนิสิต</label>
                     <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Figer768" name="name">
@@ -63,6 +63,7 @@
                   <label for="inputPassword6" class="form-label">Your Birth Day</label>
                   <input type="date" id="inputPassword6" class="form-control" value="2024-12-25" aria-describedby="passwordHelpBlock" name="birth">
                 </div>
+                <input type="hidden" name="status" value="add">
 
                 <button class="btn btn-primary submit">ยืนยัน</button>
             </form>

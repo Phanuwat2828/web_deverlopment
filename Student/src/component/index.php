@@ -175,7 +175,7 @@
                                     <div class='box'> <h5>{$per->getLevel()}</h5></div>
                                    
                                     <div class='box'> <form action='edit.php' method='GET'><button class='btn btn-primary' name='index' value='{$i}'>Edit Data</button> </form></div>
-                                    <div class='box'><a href='delete.php?id={$i}' style='margin-right: 10px;'><button class='btn btn-danger'>Delete</button></a></div>
+                                    <div class='box'><form action='set_session.php' method='POST'><button class='btn btn-danger' name='index' value='{$i}'>Delete</button> <input type='hidden' name='status' value='delete'></form></div>
                                 </div>
                             </div>
                         ";

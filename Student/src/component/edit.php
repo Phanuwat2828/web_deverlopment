@@ -101,8 +101,8 @@ class Person{
     </nav>
     <div class="content" style="width: 100%; height: 100%; display: flex; justify-content: center;">
         <div class="content_1 border border-light-subtle" style="width: 50%; height: 100%; display: flex; flex-direction: column; border-radius: 10px; padding: 50px; margin-top:20px;">
-            <h1 class="title">Register</h1>
-            <form action="addnew.php" method="POST">
+            <h1 class="title">Edit Data</h1>
+            <form action="set_session.php" method="POST">
             <div class="mb-3 user2">
                 <label for="exampleFormControlInput1" class="form-label">ชื่อนิสิต</label>
                 <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Figer768" name="name" value="<?php echo $data->getName(); ?>">
@@ -139,6 +139,7 @@ class Person{
                 <label for="inputPassword6" class="form-label">Your Birth Day</label>
                 <input type="date" id="inputPassword6" class="form-control" aria-describedby="passwordHelpBlock" name="birth" value="<?php echo $data->getBirth(); ?>">
             </div>
+            <input type="hidden" name="status" value="edit">
             <button class="btn btn-primary submit" value="<?php echo $_GET['index']; ?>" name="index">ยืนยัน</button>
         </form>
         </div>
