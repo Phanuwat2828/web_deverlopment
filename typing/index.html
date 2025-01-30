@@ -109,15 +109,15 @@
                         <div style="display: flex; flex-direction: row; justify-content: space-around;">
                             <div style="display: flex; align-items: center; flex-direction: column;">
                                 <h5 class="text-now">Incorrect.</h5>
-                                <h1 style="color: red; border: solid 1px red ; text-align:center; width: 100px; border-radius: 5px;" id="score_incorrect" class="incorrect">45</h1>
+                                <h1 style="color: red; border: solid 1px red ; text-align:center; width: 100px; border-radius: 5px;" id="score_incorrect" class="incorrect">xx</h1>
                             </div>
                             <div style="display: flex; align-items: center; flex-direction: column;">
                                 <h5  class="text-now">Score.</h5>
-                                <h1 style="color: yellowgreen; border: solid 1px yellowgreen ; text-align:center; width: 100px; border-radius: 5px;" id="score_total" class="score_show">100</h1>
+                                <h1 style="color: yellowgreen; border: solid 1px yellowgreen ; text-align:center; width: 100px; border-radius: 5px;" id="score_total" class="score_show">xxx</h1>
                             </div>
                             <div style="display: flex; align-items: center; flex-direction: column;">
                                 <h5  class="text-now">Correct.</h5>
-                                <h1 style="color: green; border: solid 1px green ; text-align:center; width: 100px; border-radius: 5px;" id="score_correct" class="correct">10</h1>
+                                <h1 style="color: green; border: solid 1px green ; text-align:center; width: 100px; border-radius: 5px;" id="score_correct" class="correct">xx</h1>
                             </div>
                         </div>
                         <div style="width: 100%; display: flex; align-items: center; margin-top: 30px; flex-direction: column; ">
@@ -179,6 +179,7 @@
                 [array[i], array[j]] = [array[j], array[i]];
             }
         }
+
         function random_word(){
             shuffle(uniqueDataText);
             exam1.length = 0;
@@ -200,6 +201,7 @@
             p_element[0]?.classList.add("pointer");
             wordElement.classList.add("text-now")
         }
+
         shuffle(uniqueDataText);
         exam1 = [...uniqueDataText];
        
@@ -220,6 +222,7 @@
         let select = 0;
         let start = false;
         let game_over = false;
+
         function Start(){
             start = !start;
             input.value = "";
@@ -257,9 +260,11 @@
                 startele.style.display = "none"
             }
         }
+
         function restart(){
             window.location.reload()
         }
+
         for (let word of exam1) {
             const wordDiv = document.createElement("div");
             wordDiv.classList.add("word");
@@ -271,6 +276,7 @@
             }
             element1.appendChild(wordDiv);
         }
+
         let elementWords = document.querySelectorAll("#show_typing .word");
         const wordElement = elementWords[select];
         const p_element = wordElement.querySelectorAll("p");
@@ -279,6 +285,7 @@
         console.log(wordElement);
         element1.classList.add("active_start");
         let incorrect = 0;
+
         function examine() {
             if(start){
                 elementWords = document.querySelectorAll("#show_typing .word");
@@ -289,6 +296,7 @@
                 let is_incorrect = false;
                 pElements[data.length-1]?.classList.remove("pointer");
                 pElements[data.length]?.classList.add("pointer");
+
                 for (let i = 0; i < data.length; i++) {
                     if (currentWord[i] === data[i]) {
                         pElements[i]?.classList.add("correct");
@@ -357,6 +365,7 @@
                 }
             }
         }
+
         input.addEventListener("keydown", (event) => {
             if (event.key === "Backspace" && input.value.length === 0 && select !=0) {
                 select = Math.max(select - 1, 0); 
@@ -365,6 +374,7 @@
                 
             }
         });
+
         input.addEventListener("input", examine);
     </script>
     
