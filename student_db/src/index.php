@@ -5,27 +5,18 @@ if (!isset($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32)); 
 }
 
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
     if (isset($_POST['csrf_token']) && $_POST['csrf_token'] == $_SESSION['csrf_token']) {
-        
         $password_u = $_POST["password"];
         $password_con = $_POST["confirm_password"];
-        
-
         if ($password_u != $password_con) {
             echo "<script>alert('Password and Confirm Password aren\'t the same!');</script>";
             echo "<script>window.history.back();</script>";
             exit();
         }
-
-
         include "connection_db.php";
         $username = $_POST["username"];
         $email = $_POST["email"];
-
-
         $sql_command = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
         $stm = $conn->prepare($sql_command);
         $password_u = password_hash($password_u, PASSWORD_BCRYPT);

@@ -6,9 +6,10 @@
   }
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include "connection_db.php";
-    $sql_command = "CALL insert_student(?,?,?,?,?,?,?,?);";
+    $sql_command = "CALL insert_student(?,?,?,?,?,?,?,?,?);";
     $st = $conn->prepare($sql_command);
-    $st->bind_param("issssids", $_SESSION['user_id'], $_POST['id'], $_POST['name'], $_POST['lastname'], $_POST['gender'], $_POST['level'], $_POST['avg_gpa'], $_POST["birth"]);
+    $fullN = $_POST['name'].$_POST['lastname'];
+    $st->bind_param("isssssids", $_SESSION['user_id'], $_POST['id'], $_POST['name'], $_POST['lastname'], $_POST['gender'],$fullN, $_POST['level'], $_POST['avg_gpa'], $_POST["birth"]);
 
     if ($st->execute()) {
       header("Location: customer.php");
@@ -17,6 +18,7 @@
     } else {
 
         echo "<script>alert('$conn->error');</script>";
+        echo "<script>window.history.back();</script>";
     }
     $st->close();
     $conn->close();

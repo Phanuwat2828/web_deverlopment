@@ -100,7 +100,7 @@
                     $data = $result->fetch_all(MYSQLI_ASSOC);
                     $i = 0;
 
-                    function add_element($id, $fname, $lname, $foname, $birth, $avg, $level, $i) {
+                    function add_element($number,$id, $fname, $lname, $foname, $birth, $avg, $level, $i) {
                         return "
                             <div class='hade_' style='display: flex; flex-direction: row; justify-content: space-between; width: 100%;'>
                                 <div class='font_1' style='display: flex; flex-direction: row; justify-content: space-between; width: 32%; align-items: center; height: 50px;'>
@@ -118,8 +118,8 @@
                                         </form>
                                     </div>
                                     <div class='box'>
-                                        <form action='set_session.php' method='POST'>
-                                            <button class='btn btn-danger' name='std_id' value='" . $id . "'>Delete</button>
+                                        <form action='delete_data.php' method='POST'>
+                                            <button class='btn btn-danger' name='number' value='" . $number . "'>Delete</button>
                                             <input type='hidden' name='status' value='delete'>
                                         </form>
                                     </div>
@@ -130,6 +130,7 @@
 
                     foreach ($data as $value) {
                         echo add_element(
+                            $value["number"],
                             $value["std_id"],
                             $value["std_firstN"],
                             $value["std_lastN"],

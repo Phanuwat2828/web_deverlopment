@@ -1,18 +1,24 @@
 <?php
   session_start();
-  $std_id = $_GET["std_id"];
-  if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
-    exit();
-  }
-  include "connection_db.php";
-  $sql_cm = "CALL show_student(?, ?)";
-  $st = $conn->prepare($sql_cm);
-  $st->bind_param("si",$std_id,$_SESSION['user_id']);
-  $st->execute();
-  $result = $st->get_result();
-  $student = $result->fetch_assoc();
-
+    $std_id = $_GET["std_id"];
+    if (!isset($_SESSION['user_id'])) {
+      header("Location: login.php");
+      exit();
+    }
+    include "connection_db.php";
+    $sql_cm = "CALL show_student(?, ?)";
+    $st = $conn->prepare($sql_cm);
+    $st->bind_param("si",$std_id,$_SESSION['user_id']);
+    $st->execute();
+    $result = $st->get_result();
+    if($result->num_rows<=0){
+      header("Location: customer.php");
+      echo "<script>alert('ไม่มีข้อมูล');</script>";
+    }
+    $student = $result->fetch_assoc();
+    $st->close();
+    $conn->close();
+  
 ?>
 
 
@@ -33,14 +39,18 @@
       <div class="container-fluid">
         <a class="navbar-brand">Dog Compony</a>
         <div style="display: flex; flex-direction: row;" class="nav-item"> 
-
+          <div style="display: flex; flex-direction: row;" class="nav-item"> 
+            <a href="customer.php" style="margin-right: 10px;">
+              <button class="btn btn-danger">Back</button>
+            </a>
+          </div>
         </div>
       </div>
     </nav>
     <div class="content" style="width: 100%; height: 100%; display: flex; justify-content: center;">
         <div class="content_1 border border-light-subtle" style="width: 50%; height: 100%; display: flex; flex-direction: column; border-radius: 10px; padding: 50px; margin-top:20px;">
             <h1 class="title">Edit Data</h1>
-          <form action="set_session.php" method="POST">
+          <form action="update_data.php" method="POST">
             <div class="mb-3 user2">
                 <label for="exampleFormControlInput1" class="form-label">ชื่อนิสิต</label>
                 <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Figer768" name="name" value="<?php echo $student["std_firstN"]; ?>">
@@ -77,7 +87,7 @@
                 <label for="inputPassword6" class="form-label">Your Birth Day</label>
                 <input type="date" id="inputPassword6" class="form-control" aria-describedby="passwordHelpBlock" name="birth" value="<?php echo $student["std_birthday"]; ?>">
             </div>
-            <input type="hidden" name="status" value="edit">
+            <input type="hidden" name="number" value="<?php echo $student["number"]?>">
             <button class="btn btn-primary submit" >ยืนยัน</button>
         </form>
         </div>
