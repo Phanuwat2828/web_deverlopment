@@ -1,78 +1,6 @@
 <?php
     session_start();
-    class Person{
-        private $name;
-        private $lastname;
-        private $id;
-        private $birth;
-        private $avg_gpa;
-        private $fontname;
-        private $level;
-        public function __construct($name, $lastname, $id, $birth, $avg_gpa, $fontname, $level) {
-            $this->name = $name;
-            $this->lastname = $lastname;
-            $this->id = $id;
-            $this->birth = $birth;
-            $this->avg_gpa = $avg_gpa;
-            $this->fontname = $fontname;
-            $this->level = $level;
-        }
-        public function getName() {
-            return $this->name;
-        }
-
-        public function setName($name) {
-            $this->name = $name;
-        }
-
-        public function getLastname() {
-            return $this->lastname;
-        }
-
-        public function setLastname($lastname) {
-            $this->lastname = $lastname;
-        }
-
-        public function getId() {
-            return $this->id;
-        }
-
-        public function setId($id) {
-            $this->id = $id;
-        }
-
-        public function getBirth() {
-            return $this->birth;
-        }
-        public function setBirth($birth) {
-            $this->birth = $birth;
-        }
-
-        public function getAvgGpa() {
-            return $this->avg_gpa;
-        }
-
-        public function setAvgGpa($avg_gpa) {
-            $this->avg_gpa = $avg_gpa;
-        }
-
-        public function getFontname() {
-            return $this->fontname;
-        }
-
-        public function setFontname($fontname) {
-            $this->fontname = $fontname;
-        }
-
-        public function getLevel() {
-            return $this->level;
-        }
-
-        public function setLevel($level) {
-            $this->level = $level;
-        }
-
-    }
+    include "class_.php";
     if (isset($_SESSION["person"])) {
         $person = $_SESSION["person"];
     } else {
@@ -80,8 +8,6 @@
     }
 
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -120,6 +46,11 @@
         }
         .box1{
         
+            width: 33%;
+        }
+        .box{
+            display: flex;
+            flex-direction: row;
             width: 33%;
         }
     </style>
@@ -166,7 +97,7 @@
                             <div class='hade_' style='display: flex; flex-direction:row; justify-content: space-between; width: 100%; '>
                                 <div class='font_1' style='display: flex; flex-direction:row; justify-content: space-between; width: 32%; align-items: center; height: 50px;'>
                                     <div class='box'>  <h5>{$per->getId()}</h5></div>
-                                    <div class='box'> <h5>{$per->getName()}</h5></div>
+                                    <div class='box'> <h5>{$per->getFontname()}.</h5> <h5>{$per->getName()}</h5></div>
                                     <div class='box'> <h5>{$per->getLastname()}</h5></div>
                                 </div>
                                 <div class='last1' style='display: flex; flex-direction:row; align-items: center;align-items: center; height: 50px;  justify-content: space-between; width: 52%; '>

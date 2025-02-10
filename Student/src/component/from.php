@@ -39,8 +39,8 @@
                 <div class="input-group mb-3 e1">
                     <label class="input-group-text" for="inputGroupSelect01">คำนำหน้า</label>
                     <select class="form-select" id="inputGroupSelect01" name="gender">
-                        <option value="นาย">นาย</option>
-                        <option value="นางสาว">นางสาว</option>
+                        <option value="Mr">Mr</option>
+                        <option value="Mrs">Mrs</option>
                     </select>
                     
                 </div>

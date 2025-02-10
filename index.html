@@ -1,116 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>สแกน QR Code</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsQR/1.4.0/jsQR.min.js"></script>
 </head>
 <body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-    crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
-    crossorigin="anonymous"></script>
+    <h1>สแกน QR Code</h1>
+    <video id="video" autoplay playsinline></video>
+    <canvas id="canvas" hidden></canvas>
+    <p id="result">รอการสแกน...</p>
 
-
-    <div style="width: 100%; height: 100vh; ">
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#">1204204 - การพัฒนาและการจัดการเว็บ</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNav">
-                
-              </div>
-            </div>
-        </nav>
-        <div style="width: 100%; height: 70%; display: flex; align-items: center; justify-content: center;">
-            <div style="width: 70vw; height: auto; display: flex; flex-direction: row; overflow: auto; padding-bottom: 10px;"> 
-                <div class="card work_1" style="width: 18rem; margin-right: 10px;">
-                    <img src="https://i.pinimg.com/736x/b1/0e/a3/b10ea3464a45138ffbd8077069846044.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">1.IMDB</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="/web_deverlopment/cinema/src/" class="btn btn-primary">click</a>
-                    </div>
-                </div>
-                <div class="card work_2" style="width: 18rem; margin-right: 10px;">
-                    <img src="https://i.pinimg.com/736x/f3/81/22/f381227b69f793701bf318fe979f2aba.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">2.Other Form</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="/web_deverlopment/register/src" class="btn btn-primary">click</a>
-                    </div>
-                </div>
-                <div class="card work_3" style="width: 18rem; margin-right: 10px;">
-                    <img src="https://i.pinimg.com/736x/cd/fc/7c/cdfc7cc80fd8263e6eb914535949249b.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                    <h5 class="card-title" style="margin-top: 10px;">3.Typing</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="/web_deverlopment/typing" class="btn btn-primary">click</a>
-                    </div>
-                </div>
-                <div class="card work_4" style="width: 18rem; margin-right: 10px;">
-                    <img src="https://i.pinimg.com/736x/77/cf/3c/77cf3c07f4dd2aec454407a57cebc365.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">เร็วๆนี้</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-primary">เร็วๆนี้</a>
-                    </div>
-                </div>
-                <div class="card work_5" style="width: 18rem; margin-right: 10px;">
-                    <img src="https://i.pinimg.com/736x/77/cf/3c/77cf3c07f4dd2aec454407a57cebc365.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">5.เร็วๆนี้</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-primary">เร็วๆนี้</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script src="https://unpkg.com/scrollreveal"></script>
     <script>
-      const scrollreveal = {
-          distance:"50px",
-          origin:"bottom",
-          duration:1000
-      }
-      ScrollReveal().reveal(".work_1",{
-        ...scrollreveal,
-          origin:"right",
-          delay:200
-      })
-      ScrollReveal().reveal(".work_2",{
-        ...scrollreveal,
-          origin:"right",
-          delay:300
-      })
-      ScrollReveal().reveal(".work_3",{
-        ...scrollreveal,
-          origin:"right",
-          delay:400
-      })
-      ScrollReveal().reveal(".work_4",{
-        ...scrollreveal,
-          origin:"right",
-          delay:500
-      })
-      ScrollReveal().reveal(".work_5",{
-        ...scrollreveal,
-          origin:"right",
-          delay:600
-      })
-      
+        async function startCamera() {
+            const video = document.getElementById("video");
+            const canvas = document.getElementById("canvas");
+            const ctx = canvas.getContext("2d");
+            const result = document.getElementById("result");
 
-  </script>
+            if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+                alert("เบราว์เซอร์ของคุณไม่รองรับการใช้กล้อง");
+                return;
+            }
 
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: { ideal: "environment" } } });
+                video.srcObject = stream;
+
+                video.onloadedmetadata = () => {
+                    video.play();
+                    scanQRCode();
+                };
+            } catch (error) {
+                console.error("ไม่สามารถเข้าถึงกล้องได้:", error);
+                alert("ไม่สามารถเข้าถึงกล้องได้: " + error.message);
+            }
+        }
+
+        function scanQRCode() {
+            const video = document.getElementById("video");
+            const canvas = document.getElementById("canvas");
+            const ctx = canvas.getContext("2d");
+            const result = document.getElementById("result");
+
+            setInterval(() => {
+                if (video.readyState === video.HAVE_ENOUGH_DATA) {
+                    canvas.width = video.videoWidth;
+                    canvas.height = video.videoHeight;
+                    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+                    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+                    const code = jsQR(imageData.data, imageData.width, imageData.height);
+
+                    if (code) {
+                        result.innerText = "QR Code: " + code.data;
+                        console.log("QR Code Detected:", code.data);
+                    }
+                }
+            }, 1000); // เวลาสแกนทุก 1 วินาที
+        }
+
+        startCamera();
+    </script>
 </body>
 </html>
+
+

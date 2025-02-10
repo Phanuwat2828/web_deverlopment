@@ -1,77 +1,5 @@
 <?php
-class Person{
-        private $name;
-        private $lastname;
-        private $id;
-        private $birth;
-        private $avg_gpa;
-        private $fontname;
-        private $level;
-        public function __construct($name, $lastname, $id, $birth, $avg_gpa, $fontname, $level) {
-            $this->name = $name;
-            $this->lastname = $lastname;
-            $this->id = $id;
-            $this->birth = $birth;
-            $this->avg_gpa = $avg_gpa;
-            $this->fontname = $fontname;
-            $this->level = $level;
-        }
-        public function getName() {
-            return $this->name;
-        }
-
-        public function setName($name) {
-            $this->name = $name;
-        }
-
-        public function getLastname() {
-            return $this->lastname;
-        }
-
-        public function setLastname($lastname) {
-            $this->lastname = $lastname;
-        }
-
-        public function getId() {
-            return $this->id;
-        }
-
-        public function setId($id) {
-            $this->id = $id;
-        }
-
-        public function getBirth() {
-            return $this->birth;
-        }
-        public function setBirth($birth) {
-            $this->birth = $birth;
-        }
-
-        public function getAvgGpa() {
-            return $this->avg_gpa;
-        }
-
-        public function setAvgGpa($avg_gpa) {
-            $this->avg_gpa = $avg_gpa;
-        }
-
-        public function getFontname() {
-            return $this->fontname;
-        }
-
-        public function setFontname($fontname) {
-            $this->fontname = $fontname;
-        }
-
-        public function getLevel() {
-            return $this->level;
-        }
-
-        public function setLevel($level) {
-            $this->level = $level;
-        }
-
-    }
+    include "class_.php";
     session_start();
     $data = unserialize($_SESSION['person'][$_GET['index']])
 ?>
@@ -85,7 +13,6 @@ class Person{
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
   </head>
 <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
@@ -95,7 +22,7 @@ class Person{
       <div class="container-fluid">
         <a class="navbar-brand">Dog Compony</a>
         <div style="display: flex; flex-direction: row;" class="nav-item"> 
-
+          
         </div>
       </div>
     </nav>
@@ -118,8 +45,8 @@ class Person{
             <div class="input-group mb-3 e1">
                 <label class="input-group-text" for="inputGroupSelect01">คำนำหน้า</label>
                 <select class="form-select" id="inputGroupSelect01" name="gender">
-                    <option value="นาย" <?php echo ($data->getFontname() == 'นาย') ? 'selected' : ''; ?>>นาย</option>
-                    <option value="นางสาว" <?php echo ($data->getFontname() == 'นางสาว') ? 'selected' : ''; ?>>นางสาว</option>
+                    <option value="Mr" <?php echo ($data->getFontname() == 'Mr') ? 'selected' : ''; ?>>Mr</option>
+                    <option value="Mrs" <?php echo ($data->getFontname() == 'Mrs') ? 'selected' : ''; ?>>Mrs</option>
                 </select>
             </div>
             <div class="input-group mb-3 e1">

@@ -4,6 +4,10 @@
   if (!isset($_SESSION['csrf_token'])) {
       $_SESSION['csrf_token'] = bin2hex(random_bytes(32)); 
   }
+  if (isset($_SESSION['user_id'])) {
+    header("Location: customer.php");
+    exit();
+  }
   session_regenerate_id(true);
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['csrf_token']) && $_POST['csrf_token'] == $_SESSION['csrf_token']) {
