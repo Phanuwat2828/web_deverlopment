@@ -83,9 +83,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                   </div>
                   <label for="inputPassword5" class="form-label">Confirm Password</label>
                   <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock" name="confirm_password">
+                  <div id="passwordHelpBlock" class="form-text" style="margin-bottom: 20px;">
+                      Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+                  </div>
                 </div>
 
-                <button class="btn btn-primary submit">Submit</button>
+                <button class="btn btn-primary submit" style="margin-top: 20px;">Submit</button>
             </form>
         </div>
 
